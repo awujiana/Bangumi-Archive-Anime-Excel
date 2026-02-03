@@ -1,0 +1,2 @@
+# Bangumi-Archive-Anime-Excel.csv
+把Bangumi开源的Archive文档下的有关条目Subject,的type2动画提取转换处理为Excel格式
