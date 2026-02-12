@@ -1,4 +1,4 @@
-# Bangumi-Archive-Anime-Excel.csv
+# Bangumi-Archive-Anime-Excel.xlsx
 
 ## 数据来源说明
 
