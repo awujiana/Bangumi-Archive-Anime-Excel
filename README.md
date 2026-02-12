@@ -1,19 +1,5 @@
 # Bangumi-Archive-Anime-Excel.csv
 
-## 数据概览
-
-| 字段 | 内容 |
-|------|------|
-| **id** | bangumi-archive-anime-excel-csv |
-| **title** | Bangumi动画档案Excel数据集 |
-| **description** | 本项目从Bangumi开源Archive文档中提取type2动画相关条目(Subject),并将其转换为结构化的Excel表格格式,便于用户进行数据分析、查询和整理。数据来源为Bangumi开源的Archive文档,专注于动画类型(type2)条目的信息提取和转换处理。 |
-| **summary** | 本数据集提供Bangumi动画档案的Excel格式数据,基于CC BY-NC-SA 4.0协议。内容涵盖type2动画条目的详细信息,包含条目基础信息、评分排名、标签等多维度数据,适用于非商业用途的数据分析、研究和个人使用。数据来源遵循Bangumi Archive的官方字段定义,确保数据的准确性和一致性。 |
-| **tags** | Bangumi,动画档案,Excel,数据集,CC协议,开源数据,动画条目,元数据,条目Subject |
-| **date** | 2026-02-10 |
-| **meta_tags** | 知识共享协议,BY-NC-SA,非商业性使用,署名,相同方式共享,动画数据库,Bangumi Archive,条目档案 |
-| **source_url** | https://creativecommons.org/licenses/by-nc-sa/4.0/ |
-| **license_type** | CC BY-NC-SA 4.0 |
-
 ## 数据来源说明
 
 本数据集基于Bangumi开源Archive文档的条目(Subject)数据,提取type=2的动画类型条目,并转换为Excel格式。原始字段定义如下:
