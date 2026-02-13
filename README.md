@@ -4,6 +4,8 @@
 
 本数据集基于Bangumi开源Archive文档的条目(Subject)数据,提取type=2的动画类型条目,并转换为Excel格式。原始字段定义如下:
 
+#### 数据预览图
+![1770952214524.png](https://free.picui.cn/free/2026/02/13/698e95e012a2e.png)
 ### 条目(Subject)字段定义
 
 | Key | 含义 | 备注 |
