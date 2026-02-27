@@ -6,7 +6,7 @@
 
 ### 数据预览图
 
-!(https://free.picui.cn/free/2026/02/14/69904b076f004.png)
+!(<https://free.picui.cn/free/2026/02/14/69904b076f004.png>)
 
 ### 条目(Subject)字段定义
 
@@ -22,9 +22,10 @@
 | nsfw | 是否为NSFW | Not Safe For Work,是否含有成人内容(布尔值) |
 | date | 发行日期 | 动画发行日期 默认为开播日放送日 |
 | favorite | 收藏状态 | 想看、看过、在看、搁置、抛弃 |
+| series | 是否为系列作品 | 布尔值 |
+| 关联的动画ID | 与该动画相关的其他动画ID,有关联的动画ID时,series则为True | 提取自subject-relations.jsonlines |
 
 ### 2023-07-27起额外导出数据
-
 | Key | 含义 | 备注 |
 |-----|------|------|
 | tags | 标签(部分) | 动画相关的标签列表 |
