@@ -6,7 +6,7 @@
 
 ### 数据预览图
 
-[![Archive提取为Excel预览图](https://free.picui.cn/free/2026/03/02/69a54a90b13a1.png)](https://free.picui.cn/free/2026/03/02/69a54a90b13a1.png)
+[![Archive提取为Excel预览图](https://free.picui.cn/free/2026/04/15/69dfaed63f398.png)](https://free.picui.cn/free/2026/04/15/69dfaed63f398.png)
 
 ### 条目(Subject)字段定义
 
