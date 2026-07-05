@@ -1,6 +1,6 @@
 # Bangumi-Archive-Anime-Excel.xlsx
 
-> **图例**：<span style="color:#2da44e">**🆕 新增 2026-07-05**</span> 标记表示本项目在 [官方 README](官方README.md) 基础上新增/扩展的内容（对比日期：2026-07-05）。未标记的章节为官方 Archive 已有内容（如基础字段、评分字段等）。
+> **图例**：<span style="color:#2da44e">**🆕 新增 2026-07-05**</span> 标记表示本项目在 [官方 README](https://github.com/bangumi/Archive) 基础上新增/扩展的内容（对比日期：2026-07-05）。未标记的章节为官方 Archive 已有内容（如基础字段、评分字段等）。
 
 ## <span style="color:#2da44e">🆕 新增 2026-07-05</span> 本项目文件概览
 
