@@ -19,8 +19,12 @@
 本数据集基于Bangumi开源Archive文档的条目(Subject)数据,提取type=2的动画类型条目,并转换为Excel格式。原始字段定义如下:
 
 ### 数据预览图
+ani-bangumi-type2-YYYY-MM-DD.xlsx
+[![Archive提取为Excel预览图](https://free.picui.cn/free/2026/06/30/6a437e24cbe7f.png)]
 
-[![Archive提取为Excel预览图](https://free.picui.cn/free/2026/04/15/69dfaed63f398.png)](https://free.picui.cn/free/2026/04/15/69dfaed63f398.png)
+ani-bangumi-type2-YYYY-MM-DD-template.xlsx
+[![Archive模板转换为Excel预览图](https://free.picui.cn/free/2026/06/30/6a437e5e7ba36.png)]
+
 
 ### 条目(Subject)字段定义
 
