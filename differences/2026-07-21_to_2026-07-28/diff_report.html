@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>备份文件差异对比报告 - 26年7月28日对比26年7月21日</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 10px; margin-bottom: 30px; }
+        .summary { background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .file-result { border: 1px solid #ddd; margin: 15px 0; padding: 20px; border-radius: 8px; background: white; }
+        .added { color: #28a745; font-weight: bold; }
+        .deleted { color: #dc3545; font-weight: bold; }
+        .modified { color: #ffc107; font-weight: bold; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+        th { background: #f2f2f2; font-weight: bold; }
+        tr:hover { background: #f5f5f5; }
+        .stats { display: flex; justify-content: space-around; margin: 20px 0; }
+        .stat-item { text-align: center; padding: 15px; border-radius: 8px; }
+        .added-stat { background: #d4edda; }
+        .deleted-stat { background: #f8d7da; }
+        .modified-stat { background: #fff3cd; }
+        .link-box { background: #e7f3ff; padding: 15px; border-radius: 8px; margin: 15px 0; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>[统计] 备份文件差异对比报告</h1>
+        <p>📅 对比时间段: 26年7月28日对比26年7月21日</p>
+        <p>⏰ 生成时间: 2026-08-04 18:27:50</p>
+        
+    </div>
+
+    <div class="stats">
+        <div class="stat-item added-stat">
+            <h3>[新增] 新增</h3>
+            <p class="added">231 条</p>
+        </div>
+        <div class="stat-item deleted-stat">
+            <h3>[删除] 删除</h3>
+            <p class="deleted">12 条</p>
+        </div>
+        <div class="stat-item modified-stat">
+            <h3>[修改] 修改</h3>
+            <p class="modified">12476 条</p>
+        </div>
+        <div class="stat-item">
+            <h3>[净变化] 净变化</h3>
+            <p style="color: #007bff; font-weight: bold;">219 条</p>
+        </div>
+    </div>
+
+    <div class="summary">
+        <h2>📋 文件差异统计</h2>
+        <table>
+            <tr>
+                <th>文件类型</th>
+                <th>旧文件数据量</th>
+                <th>新文件数据量</th>
+                <th class="added">新增数据</th>
+                <th class="deleted">删除数据</th>
+                <th class="modified">修改数据</th>
+                <th>净变化</th>
+            </tr>
+    
+            <tr>
+                <td><strong>type2_subject</strong></td>
+                <td>30502</td>
+                <td>30556</td>
+                <td class="added">54</td>
+                <td class="deleted">0</td>
+                <td class="modified">12444</td>
+                <td style="color: #28a745;">
+                    54
+                </td>
+            </tr>
+        
+            <tr>
+                <td><strong>type2_subject-relations</strong></td>
+                <td>83189</td>
+                <td>83354</td>
+                <td class="added">177</td>
+                <td class="deleted">12</td>
+                <td class="modified">32</td>
+                <td style="color: #28a745;">
+                    165
+                </td>
+            </tr>
+        
+            <tr>
+                <td><strong>type2_episode</strong></td>
+                <td>264</td>
+                <td>264</td>
+                <td class="added">0</td>
+                <td class="deleted">0</td>
+                <td class="modified">0</td>
+                <td style="color: #6c757d;">
+                    0
+                </td>
+            </tr>
+        
+        </table>
+    </div>
+
+    <div class="file-result">
+        <h2>📁 文件详情说明</h2>
+        <p><strong>文件命名规则:</strong> 文件名_旧日期_vs_新日期_差异类型.jsonlines</p>
+        <p><strong>新增数据文件 (.jsonlines):</strong> 包含新文件中存在但旧文件中不存在的数据</p>
+        <p><strong>删除数据文件 (.jsonlines):</strong> 包含旧文件中存在但新文件中不存在的数据</p>
+        <p><strong>修改数据文件 (.jsonlines):</strong> 包含主键相同但内容发生变化的数据对比（每行一个 {key, old, new}）</p>
+    </div>
+
+    <div class="file-result">
+        <h2>[说明] 数据说明</h2>
+        <p><strong>动画条目 (subject.jsonlines):</strong> 包含动画的基本信息、制作信息等</p>
+        <p><strong>剧集信息 (episode.jsonlines):</strong> 包含动画的剧集信息</p>
+        <p><strong>关联关系 (subject-relations.jsonlines):</strong> 包含动画之间的关联关系</p>
+    </div>
+</body>
+</html>
+    
