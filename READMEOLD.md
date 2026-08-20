@@ -20,10 +20,10 @@
 
 ### 数据预览图
 ani-bangumi-type2-YYYY-MM-DD.xlsx
-[![Archive提取为Excel预览图](https://free.picui.cn/free/2026/06/30/6a437e24cbe7f.png)]
+![Archive提取为Excel预览图](https://free.picui.cn/free/2026/06/30/6a437e24cbe7f.png)
 
 ani-bangumi-type2-YYYY-MM-DD-template.xlsx
-[![Archive模板转换为Excel预览图](https://free.picui.cn/free/2026/06/30/6a437e5e7ba36.png)]
+![Archive模板转换为Excel预览图](https://free.picui.cn/free/2026/06/30/6a437e5e7ba36.png)
 
 
 ### 条目(Subject)字段定义

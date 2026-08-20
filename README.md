@@ -243,8 +243,6 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 | `type2_subject_*_deleted.jsonlines` | 删除条目列表 |
 | `差异数据_type2_*.html` | 差异可视化页面 |
 
-> **注意**：`modified.jsonlines` / `modified.json`（约 70-90 MB/周期）体积过大，不上传到 GitHub，仅保留本地。
-
 ---
 
 ## 🔄 数据更新流程
