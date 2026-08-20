@@ -1,0 +1,88 @@
+name: Update README Badges
+
+on:
+  schedule:
+    # 每周三 00:00 UTC (北京时间 08:00) 触发
+    - cron: '0 0 * * 3'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force update even if no changes'
+        required: false
+        default: 'false'
+
+permissions:
+  contents: write
+
+jobs:
+  update-badges:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Count records
+        id: count
+        run: |
+          RECORD_COUNT=$(wc -l < data/bangumi.jsonl | tr -d ' ')
+          echo "record_count=${RECORD_COUNT}" >> $GITHUB_OUTPUT
+          echo "Found ${RECORD_COUNT} records in bangumi.jsonl"
+
+      - name: Update README badge count
+        run: |
+          RECORD_COUNT="${{ steps.count.outputs.record_count }}"
+          README_FILE="README.md"
+
+          if [ ! -f "$README_FILE" ]; then
+            echo "::warning::README.md not found, skipping"
+            exit 0
+          fi
+
+          if grep -q "img.shields.io/badge/记录数-" "$README_FILE"; then
+            OLD_COUNT=$(grep -oP 'img.shields.io/badge/记录数-\K[0-9]+' "$README_FILE" || echo "0")
+            echo "Current badge shows: ${OLD_COUNT}"
+            
+            sed -i "s|img.shields.io/badge/记录数-${OLD_COUNT}-2da44e|img.shields.io/badge/记录数-${RECORD_COUNT}-2da44e|g" "$README_FILE"
+            echo "Updated record count badge: ${OLD_COUNT} -> ${RECORD_COUNT}"
+          else
+            echo "::warning::Record count badge not found in README.md"
+          fi
+
+          TODAY=$(date +%Y-%m-%d)
+          if grep -q "img.shields.io/badge/更新日期-" "$README_FILE"; then
+            sed -i "s|img.shields.io/badge/更新日期-[0-9-]*-2da44e|img.shields.io/badge/更新日期-${TODAY}-2da44e|g" "$README_FILE"
+            echo "Updated date badge to ${TODAY}"
+          fi
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes detected"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Changes detected in README.md"
+          fi
+
+      - name: Commit and push if changed
+        if: steps.git-check.outputs.changed == 'true' || github.event.inputs.force == 'true'
+        run: |
+          git config user.name = "github-actions[bot]"
+          git config user.email = "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add README.md
+          git commit -m "docs: update record count badge to ${{ steps.count.outputs.record_count }}
+          
+          [skip ci] Automated update by GitHub Actions"
+          
+          CURRENT_BRANCH=$(git branch --show-current)
+          git push origin ${GITHUB_HEAD_REF:-$CURRENT_BRANCH}
+          echo "Successfully pushed changes to ${GITHUB_HEAD_REF:-$CURRENT_BRANCH}"
+
+      - name: Skip commit (no changes)
+        if: steps.git-check.outputs.changed == 'false' && github.event.inputs.force != 'true'
+        run: |
+          echo "No changes detected. Skipping commit."
