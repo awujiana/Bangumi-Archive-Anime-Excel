@@ -4,7 +4,7 @@
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-2da44e.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Data Update](https://img.shields.io/badge/更新频率-每周三-2da44e.svg)](https://github.com/bangumi/Archive)
-[![Records](https://img.shields.io/badge/记录数-30610-2da44e.svg)](data/bangumi.jsonl)
+[![Records](https://img.shields.io/badge/记录数-30704-2da44e.svg)](data/bangumi.jsonl)
 
 ---
 
