@@ -1,0 +1,6 @@
+{"subject_id": 218453, "relation_type": 99, "related_subject_id": 568120, "order": 0}
+{"subject_id": 538221, "relation_type": 3, "related_subject_id": 538226, "order": 0}
+{"subject_id": 538226, "relation_type": 2, "related_subject_id": 538221, "order": 0}
+{"subject_id": 538226, "relation_type": 3, "related_subject_id": 538224, "order": 0}
+{"subject_id": 568120, "relation_type": 99, "related_subject_id": 218453, "order": 0}
+{"subject_id": 538224, "relation_type": 2, "related_subject_id": 538226, "order": 0}
