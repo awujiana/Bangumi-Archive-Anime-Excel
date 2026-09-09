@@ -1,0 +1,36 @@
+{
+  "comparison_date": "2026-09-09 12:32:33",
+  "comparison_period": "26年9月8日对比26年9月1日",
+  "old_date": "26年9月1日",
+  "new_date": "26年9月8日",
+  "file_results": {
+    "type2_subject": {
+      "old_count": 30792,
+      "new_count": 30836,
+      "added_count": 47,
+      "deleted_count": 3,
+      "modified_count": 12348,
+      "net_change": 44
+    },
+    "type2_subject-relations": {
+      "old_count": 83959,
+      "new_count": 84059,
+      "added_count": 103,
+      "deleted_count": 3,
+      "modified_count": 18,
+      "net_change": 100
+    },
+    "type2_episode": {
+      "old_count": 264,
+      "new_count": 264,
+      "added_count": 0,
+      "deleted_count": 0,
+      "modified_count": 0,
+      "net_change": 0
+    }
+  },
+  "total_added": 150,
+  "total_deleted": 6,
+  "total_modified": 12366,
+  "net_change": 144
+}
