@@ -59,14 +59,14 @@ Bangumi-Archive-Anime-Excel/
 │       └── ...
 ├── config/
 │   └── field_mappings.json              # 字段映射配置
-├── scripts/
-│   └── update_badges.py                 # 从 bangumi.jsonl 同步 README 徽章与统计信息
-├── .gitignore
 ├── LICENSE
 └── README.md
 ```
 
-> **注意**：`*.xlsx` 文件已通过 `.gitignore` 排除，仅在本地使用，不上传到 GitHub。
+> 本仓库**只存放数据**（JSONL 数据源与差异摘要），不存放任何处理脚本；
+> 流水线与运维脚本统一位于业务仓库 [`Archive/scripts/`](../Archive/scripts)。
+
+> **注意**：`*.xlsx` 文件仅在本地使用，不上传到 GitHub。
 
 ---
 
@@ -256,13 +256,13 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
    - 解析 infobox、生成 Excel 全量存档与差异报告
    - 执行 `convert_dump_to_jsonl.py` 生成 `bangumi.jsonl`
    - 执行 `sync_to_awujiana.py` 同步差异摘要到本仓库
-3. **本仓库**由 `push_anime_data_repository.py` 自动提交：
-   - 先执行 `scripts/update_badges.py`，把本 README 的徽章与统计信息对齐到最新的 `bangumi.jsonl`
+3. **本仓库**由 Archive 项目的 `push_anime_data_repository.py` 自动提交：
+   - 先执行 `Archive/scripts/update_badges.py`，把本 README 的徽章与统计信息对齐到最新的 `bangumi.jsonl`
    - 再 `git add` + `git commit` + `git push` 更新到 GitHub
 4. **BGM 插件**通过 raw URL 拉取最新 `bangumi.jsonl`
 
-> 本 README 中所有数字（记录数、大小、更新日期）均由 `scripts/update_badges.py` 从 `data/bangumi.jsonl` 自动生成，无需手工维护。
-> 手动校验是否已对齐：`python scripts/update_badges.py --check`（过期时退出码为 1）。
+> 本 README 中所有数字（记录数、大小、更新日期）均由业务仓库的 `Archive/scripts/update_badges.py` 从 `data/bangumi.jsonl` 自动生成，无需手工维护。
+> 手动校验是否已对齐：`python scripts/update_badges.py --check`（在 Archive 仓库根目录执行，过期时退出码为 1）。
 
 ---
 
