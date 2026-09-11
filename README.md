@@ -4,7 +4,8 @@
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-2da44e.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Data Update](https://img.shields.io/badge/更新频率-每周三-2da44e.svg)](https://github.com/bangumi/Archive)
-[![Records](https://img.shields.io/badge/记录数-30704-2da44e.svg)](data/bangumi.jsonl)
+[![Last Update](https://img.shields.io/badge/更新日期-2026-09-08-2da44e.svg)](data/bangumi.jsonl)
+[![Records](https://img.shields.io/badge/记录数-30836-2da44e.svg)](data/bangumi.jsonl)
 
 ---
 
@@ -46,7 +47,7 @@ ani-bangumi-type2-YYYY-MM-DD-template.xlsx
 ```
 Bangumi-Archive-Anime-Excel/
 ├── data/
-│   └── bangumi.jsonl                    # BGM 插件数据源（~16 MB，30610 条）
+│   └── bangumi.jsonl                    # BGM 插件数据源（~16 MB，30836 条）
 ├── differences/                         # 差异摘要（每周对比）
 │   ├── 2026-07-21_to_2026-07-28/
 │   │   ├── diff_report.html             # 差异报告（浏览器可读）
@@ -58,6 +59,8 @@ Bangumi-Archive-Anime-Excel/
 │       └── ...
 ├── config/
 │   └── field_mappings.json              # 字段映射配置
+├── scripts/
+│   └── update_badges.py                 # 从 bangumi.jsonl 同步 README 徽章与统计信息
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -73,10 +76,11 @@ Bangumi-Archive-Anime-Excel/
 
 BGM 插件通过 raw URL 读取的 JSONL 格式动画数据。
 
-- **大小**：约 16 MB
-- **记录数**：30610 条
+- **大小**：约 16 MB（16,867,083 字节）
+- **记录数**：30836 条
 - **编码**：UTF-8 无 BOM，LF 换行
 - **更新频率**：每周三（跟随 Bangumi 官方 dump 节奏）
+- **最近更新**：2026-09-08
 - **访问地址**：
   ```
   https://raw.githubusercontent.com/awujiana/Bangumi-Archive-Anime-Excel/main/data/bangumi.jsonl
@@ -252,8 +256,13 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
    - 解析 infobox、生成 Excel 全量存档与差异报告
    - 执行 `convert_dump_to_jsonl.py` 生成 `bangumi.jsonl`
    - 执行 `sync_to_awujiana.py` 同步差异摘要到本仓库
-3. **本仓库**通过 `git push` 更新到 GitHub
+3. **本仓库**由 `push_anime_data_repository.py` 自动提交：
+   - 先执行 `scripts/update_badges.py`，把本 README 的徽章与统计信息对齐到最新的 `bangumi.jsonl`
+   - 再 `git add` + `git commit` + `git push` 更新到 GitHub
 4. **BGM 插件**通过 raw URL 拉取最新 `bangumi.jsonl`
+
+> 本 README 中所有数字（记录数、大小、更新日期）均由 `scripts/update_badges.py` 从 `data/bangumi.jsonl` 自动生成，无需手工维护。
+> 手动校验是否已对齐：`python scripts/update_badges.py --check`（过期时退出码为 1）。
 
 ---
 
