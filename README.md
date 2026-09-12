@@ -4,8 +4,8 @@
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-2da44e.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Data Update](https://img.shields.io/badge/更新频率-每周三-2da44e.svg)](https://github.com/bangumi/Archive)
-[![Last Update](https://img.shields.io/badge/更新日期-2026-09-08-2da44e.svg)](data/bangumi.jsonl)
-[![Records](https://img.shields.io/badge/记录数-30836-2da44e.svg)](data/bangumi.jsonl)
+[![Last Update](https://img.shields.io/badge/更新日期-2026-09-08-2da44e.svg)](data/bangumi.jsonlines)
+[![Records](https://img.shields.io/badge/记录数-30836-2da44e.svg)](data/bangumi.jsonlines)
 
 ---
 
@@ -47,7 +47,7 @@ ani-bangumi-type2-YYYY-MM-DD-template.xlsx
 ```
 Bangumi-Archive-Anime-Excel/
 ├── data/
-│   └── bangumi.jsonl                    # BGM 插件数据源（~16 MB，30836 条）
+│   └── bangumi.jsonlines                # BGM 插件数据源（~8 MB，30836 条）
 ├── differences/                         # 差异摘要（每周对比）
 │   ├── 2026-07-21_to_2026-07-28/
 │   │   ├── diff_report.html             # 差异报告（浏览器可读）
@@ -72,41 +72,39 @@ Bangumi-Archive-Anime-Excel/
 
 ## 📊 数据文件说明
 
-### 1. `data/bangumi.jsonl`（核心数据源）
+### 1. `data/bangumi.jsonlines`（核心数据源）
 
-BGM 插件通过 raw URL 读取的 JSONL 格式动画数据。
+BGM 插件通过 raw URL 读取的动画数据，采用「**表头 + 值数组**」两段式 JSON Lines 格式。
 
-- **大小**：约 16 MB（16,867,083 字节）
+- **大小**：约 8 MB（8,017,440 字节）
 - **记录数**：30836 条
 - **编码**：UTF-8 无 BOM，LF 换行
 - **更新频率**：每周三（跟随 Bangumi 官方 dump 节奏）
 - **最近更新**：2026-09-08
 - **访问地址**：
   ```
-  https://raw.githubusercontent.com/awujiana/Bangumi-Archive-Anime-Excel/main/data/bangumi.jsonl
+  https://raw.githubusercontent.com/awujiana/Bangumi-Archive-Anime-Excel/main/data/bangumi.jsonlines
   ```
 
-#### 单条记录示例
+> **为什么扩展名是 `.jsonlines` 而不是 `.jsonl`？**
+> GitHub raw CDN 是否对文件做 gzip 压缩**只取决于扩展名**，与文件大小无关（已实测）。
+> `.jsonl` 会被当作 `application/octet-stream` 原样传输，16 MB 全量下载；
+> 而 `.jsonlines` / `.json` / `.md` / `.txt` 会被识别为文本并透明压缩。
+> 实测本文件经 CDN 压缩后只需传输 **约 2.6 MB（−84%）**，浏览器自动解压，客户端零额外代码。
 
-```json
-{
-  "sid": "8",
-  "name": "Code Geass 反叛的鲁路修R2",
-  "updatedAt": "2026-08-04",
-  "date": "2008-04-06",
-  "meta_tags": ["机战", "TV", "日本", "原创", "战斗"],
-  "nsfw": false,
-  "播放结束": "2008年9月28日",
-  "动画制作公司": "サンライズ",
-  "话数": "25",
-  "导演": "谷口悟朗",
-  "音乐": "中川幸太郎、黒石ひとみ",
-  "人物设定": "木村貴宏",
-  "原作": "大河内一楼、谷口悟朗",
-  "系列构成": "大河内一楼",
-  "关联的动漫ID": "85 | 344 | 793 | 1081 | 3219 | 8813"
-}
+#### 数据格式：表头 + 值数组
+
+第 1 行是**表头**（字段名数组），其后每行是与表头**等长**的**值数组**：
+
+```jsonl
+["sid","name","updatedAt","date","meta_tags","nsfw","播放结束","动画制作公司","话数","片长","制片国家","语言","类型","导演","音乐","人物设定","机械设定","原作","脚本","分镜","演出","原案","系列构成","在线播放平台","关联的动漫ID"]
+["8","Code Geass 反叛的鲁路修R2","2026-09-08","2008-04-06",["机战","TV","日本","原创","战斗"],false,"2008年9月28日","サンライズ、david production、スタジオガッツ；作画协力：GONZO","25","","","","","谷口悟朗","中川幸太郎、黒石ひとみ","木村貴宏","寺岡賢司、沙倉拓実；Knightmare设计：安田朗、中田栄治、阿久津潤一","","","","","故事原案：大河内一楼、谷口悟朗","大河内一楼","","85 | 344 | 793 | 1081 | 3219 | 8813 | 8816 | 8817 | 8819 | 8820 | 17967 | 32214 | 33389 | 35866 | 51042 | 73715 | 78546 | 91493 | 99952 | 102098 | 110909 | 118733 | 118734 | 118735 | 118736 | 118737 | 118738 | 120756 | 120758 | 141050 | 145943 | 188684 | 188685 | 199228 | 199229 | 199230 | 199231 | 231875 | 231982 | 231989 | 237827 | 239861 | 306532 | 309324 | 321523 | 336526 | 377946 | 391213 | 391214 | 391873 | 400807 | 405346 | 452308 | 667009 | 667019"]
 ```
+
+- 仍然是合法的 JSON Lines：**每行一个合法的 JSON 值**（这里是数组）。
+- 值数组的顺序与长度**严格对应表头**；缺失字段补默认值（字符串补 `""`、`meta_tags` 补 `[]`、`nsfw` 补 `false`）。
+- 字段名只在表头出现一次，不再随 3 万条记录重复，因此文件体积比「每行一个完整对象」**减半**，且完全无损。
+- 消费端解析约定：**首个非空行必须是纯字符串数组（表头）**，其后每行必须是等长数组。
 
 #### 字段说明
 
@@ -254,14 +252,14 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 1. **Bangumi 官方**每周三凌晨发布 wiki 数据 dump
 2. **Archive 项目**下载 dump 并处理：
    - 解析 infobox、生成 Excel 全量存档与差异报告
-   - 执行 `convert_dump_to_jsonl.py` 生成 `bangumi.jsonl`
+   - 执行 `convert_dump_to_jsonl.py` 生成 `bangumi.jsonlines`（表头 + 值数组）
    - 执行 `sync_to_awujiana.py` 同步差异摘要到本仓库
 3. **本仓库**由 Archive 项目的 `push_anime_data_repository.py` 自动提交：
-   - 先执行 `Archive/scripts/update_badges.py`，把本 README 的徽章与统计信息对齐到最新的 `bangumi.jsonl`
+   - 先执行 `Archive/scripts/update_badges.py`，把本 README 的徽章与统计信息对齐到最新的 `bangumi.jsonlines`
    - 再 `git add` + `git commit` + `git push` 更新到 GitHub
-4. **BGM 插件**通过 raw URL 拉取最新 `bangumi.jsonl`
+4. **BGM 插件**通过 raw URL 拉取最新 `bangumi.jsonlines`
 
-> 本 README 中所有数字（记录数、大小、更新日期）均由业务仓库的 `Archive/scripts/update_badges.py` 从 `data/bangumi.jsonl` 自动生成，无需手工维护。
+> 本 README 中所有数字（记录数、大小、更新日期）均由业务仓库的 `Archive/scripts/update_badges.py` 从 `data/bangumi.jsonlines` 自动生成，无需手工维护。
 > 手动校验是否已对齐：`python scripts/update_badges.py --check`（在 Archive 仓库根目录执行，过期时退出码为 1）。
 
 ---
