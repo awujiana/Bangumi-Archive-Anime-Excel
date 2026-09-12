@@ -1,3 +1,5 @@
 # 本地归档工作目录（流水线步骤⑧写入、步骤⑤读上期存档），刻意不入库
 # 与白名单 data/ /differences/ /config/ /README.md /LICENSE 区分开
+# 用户确认：任何 .xlsx 文件都不需要跟踪/推送（含 differences/ 下的差异表）
 /xlsx/
+*.xlsx
