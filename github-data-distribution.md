@@ -22,7 +22,7 @@
 your-repo/
 ├── latest.json              ← 版本指针（必须，raw 可访问）
 ├── data/
-│   └── bangumi.jsonl        ← 直接 JSONL 模式（可选，小文件）
+│   └── bangumi.jsonlines        ← 直接 JSONL 模式（可选，小文件）
 └── releases/                ← Release Assets 模式（大文件推荐）
     └── (通过 GitHub Release 上传)
 ```
@@ -147,7 +147,7 @@ https://raw.githubusercontent.com/{owner}/{repo}/{branch}/{path}
 将数据导出为 JSONL 文件，压缩为 zip：
 
 ```bash
-zip data.zip bangumi.jsonl
+zip data.zip bangumi.jsonlines
 ```
 
 ### 2. 创建 GitHub Release
@@ -195,7 +195,7 @@ git push origin main
 | 特性 | 直接 JSONL 模式 | Release Asset 模式 |
 |---|---|---|
 | 适用场景 | 小文件（< 100MB） | 大文件（> 100MB） |
-| path 配置 | `data/bangumi.jsonl` | `latest.json` |
+| path 配置 | `data/bangumi.jsonlines` | `latest.json` |
 | 数据格式 | 直接 JSONL | zip 压缩包（内含 JSONL） |
 | 版本管理 | 无（直接覆盖） | 有（Release tag 历史） |
 | 下载方式 | raw.githubusercontent.com | github.com/releases/download |
