@@ -4,8 +4,8 @@
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-2da44e.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 [![Data Update](https://img.shields.io/badge/更新频率-每周三-2da44e.svg)](https://github.com/bangumi/Archive)
-[![Last Update](https://img.shields.io/badge/更新日期-2026-09-08-2da44e.svg)](data/bangumi.jsonlines)
-[![Records](https://img.shields.io/badge/记录数-30836-2da44e.svg)](data/bangumi.jsonlines)
+[![Last Update](https://img.shields.io/badge/更新日期-2026-09-08-2da44e.svg)](data/bangumi.jsonlines.gz)
+[![Records](https://img.shields.io/badge/记录数-30836-2da44e.svg)](data/bangumi.jsonlines.gz)
 
 ---
 
@@ -47,7 +47,7 @@ ani-bangumi-type2-YYYY-MM-DD-template.xlsx
 ```
 Bangumi-Archive-Anime-Excel/
 ├── data/
-│   └── bangumi.jsonlines                # BGM 插件数据源（~56 MB，30836 条）
+│   └── bangumi.jsonlines.gz             # BGM 插件数据源（~21 MB，30836 条，gzip）
 ├── differences/                         # 差异摘要（每周对比）
 │   ├── 2026-07-21_to_2026-07-28/
 │   │   ├── diff_report.html             # 差异报告（浏览器可读）
@@ -59,6 +59,7 @@ Bangumi-Archive-Anime-Excel/
 │       └── ...
 ├── config/
 │   └── field_mappings.json              # 字段映射配置
+├── .gitattributes                       # `*.gz` 按二进制处理（不做行尾归一化/文本 diff）
 ├── LICENSE
 └── README.md
 ```
@@ -72,25 +73,28 @@ Bangumi-Archive-Anime-Excel/
 
 ## 📊 数据文件说明
 
-### 1. `data/bangumi.jsonlines`（核心数据源）
+### 1. `data/bangumi.jsonlines.gz`（核心数据源）
 
 BGM 插件通过 raw URL 读取的动画数据，采用「**表头 + 值数组**」两段式 JSON Lines 格式。
 
-- **大小**：约 56 MB（58,540,100 字节）
+- **大小**：约 21 MB（21,876,779 字节，解压后 55.83 MiB）
 - **记录数**：30836 条
 - **编码**：UTF-8 无 BOM，LF 换行
 - **更新频率**：每周三（跟随 Bangumi 官方 dump 节奏）
 - **最近更新**：2026-09-08
 - **访问地址**：
   ```
-  https://raw.githubusercontent.com/awujiana/Bangumi-Archive-Anime-Excel/main/data/bangumi.jsonlines
+  https://raw.githubusercontent.com/awujiana/Bangumi-Archive-Anime-Excel/main/data/bangumi.jsonlines.gz
   ```
 
-> **为什么扩展名是 `.jsonlines` 而不是 `.jsonl`？**
-> GitHub raw CDN 是否对文件做 gzip 压缩**只取决于扩展名**，与文件大小无关（已实测）。
-> `.jsonl` 会被当作 `application/octet-stream` 原样传输，55.8 MB 全量下载；
-> 而 `.jsonlines` / `.json` / `.md` / `.txt` 会被识别为文本并透明压缩。
-> 实测本文件经 CDN 压缩后只需传输 **约 20.9 MB（−63%）**，浏览器自动解压，客户端零额外代码。
+> **为什么数据文件要 gzip 压缩？**
+> JSONL 明文为 55.83 MiB，超过 GitHub 单文件 50 MB 的建议上限（push 时会报 `GH001` 警告）；
+> 且 GitHub raw CDN **不会**对它做透明压缩——实测 `.jsonlines` 返回 `Content-Type: application/octet-stream`
+> 且**没有** `Content-Encoding` 头，客户端每次同步都要拉满 55.83 MiB。
+> 因此在**生产端**就压成 gzip（`compresslevel=9` + `mtime=0`，相同内容产出完全相同的字节，便于哈希比对）：
+> 仓库体积与单次下载量都降到 **20.86 MiB（−63%）**。
+> 消费端（BGM 插件）用浏览器原生 `DecompressionStream('gzip')` 解压，不引入任何第三方依赖，
+> 并按 gzip 魔数（`1f 8b`）自动识别，明文数据源同样可以直接读取。
 
 #### 数据格式：表头 + 值数组
 
@@ -272,14 +276,14 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 1. **Bangumi 官方**每周三凌晨发布 wiki 数据 dump
 2. **Archive 项目**下载 dump 并处理：
    - 解析 infobox、生成 Excel 全量存档与差异报告
-   - 执行 `convert_dump_to_jsonl.py` 生成 `bangumi.jsonlines`（表头 + 值数组）
+   - 执行 `convert_dump_to_jsonl.py` 生成 `bangumi.jsonlines.gz`（表头 + 值数组，gzip 压缩）
    - 执行 `sync_to_awujiana.py` 同步差异摘要到本仓库
 3. **本仓库**由 Archive 项目的 `push_anime_data_repository.py` 自动提交：
-   - 先执行 `Archive/scripts/update_badges.py`，把本 README 的徽章与统计信息对齐到最新的 `bangumi.jsonlines`
+   - 先执行 `Archive/scripts/update_badges.py`，把本 README 的徽章与统计信息对齐到最新的 `bangumi.jsonlines.gz`
    - 再 `git add` + `git commit` + `git push` 更新到 GitHub
-4. **BGM 插件**通过 raw URL 拉取最新 `bangumi.jsonlines`
+4. **BGM 插件**通过 raw URL 拉取最新 `bangumi.jsonlines.gz` 并解压
 
-> 本 README 中所有数字（记录数、大小、更新日期）均由业务仓库的 `Archive/scripts/update_badges.py` 从 `data/bangumi.jsonlines` 自动生成，无需手工维护。
+> 本 README 中所有数字（记录数、大小、更新日期）均由业务仓库的 `Archive/scripts/update_badges.py` 从 `data/bangumi.jsonlines.gz` 自动生成，无需手工维护。
 > 手动校验是否已对齐：`python scripts/update_badges.py --check`（在 Archive 仓库根目录执行，过期时退出码为 1）。
 
 ---
