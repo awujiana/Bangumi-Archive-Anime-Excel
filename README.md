@@ -28,9 +28,9 @@ BGM 插件 (读取 JSONL → 写入 Excel → 同步 Bangumi API)
 
 | 文件名 | 类型 | 说明 |
 |--------|------|------|
-| `ani-bangumi-type2-YYYY-MM-DD.xlsx` | 主数据文件 | 完整原始导出字段(73 列),按日期归档的全量动画条目数据 |
+| `ani-bangumi-type2-YYYY-MM-DD.xlsx` | 主数据文件 | 完整原始导出字段(75 列),按日期归档的全量动画条目数据 |
 | `type2_subject_YYMMDD_vs_YYMMDD.xlsx` | 差异对比文件 | 相邻期次之间的差异记录(新增、删除、修改),命名格式为"新日期_vs_旧日期" |
-| `ani-bangumi-type2-YYYY-MM-DD-template.xlsx` | 模板转换文件 | 在主数据文件基础上精简的 41 列模板,面向用户填写收藏信息 |
+| `ani-bangumi-type2-YYYY-MM-DD-template.xlsx` | 模板转换文件 | 在主数据文件基础上精简的 42 列模板,面向用户填写收藏信息 |
 
 ### 数据预览图
 ani-bangumi-type2-YYYY-MM-DD.xlsx
@@ -50,7 +50,7 @@ Bangumi-Archive-Anime-Excel/
 │   ├── anime.manifest.json              # 清单：各片文件名/字段/大小/哈希（插件先读它）
 │   ├── anime.base.jsonlines.gz          # 基础字段（7 列，~1.1 MB）
 │   ├── anime.meta.jsonlines.gz          # infobox 解析扩展（20 列，~2.0 MB）
-│   ├── anime.relations.jsonlines.gz     # 关联条目 ID（2 列，~0.3 MB）
+│   ├── anime.relations.jsonlines.gz     # 关联条目 ID（3 列，~0.4 MB）
 │   ├── anime.stats.jsonlines.gz         # 平台/系列/评分/排名/收藏/标签（8 列，~1.6 MB）
 │   ├── anime.summary.jsonlines.gz       # 简介（2 列，~7.8 MB）
 │   └── anime.infobox.jsonlines.gz       # infobox 原文（2 列，~8.4 MB）
@@ -86,7 +86,7 @@ Bangumi-Archive-Anime-Excel/
 
 BGM 插件通过 raw URL 读取的动画数据，**按字段类别切成 6 片**；每片仍是「**表头 + 值数组**」两段式 JSON Lines 格式，再经 gzip 压缩。
 
-- **大小**：约 21 MB（22,217,627 字节，解压后 57.55 MiB）
+- **大小**：约 21 MB（22,260,889 字节，解压后 57.84 MiB）
 - **记录数**：30889 条
 - **编码**：UTF-8 无 BOM，LF 换行
 - **更新频率**：每周三（跟随 Bangumi 官方 dump 节奏）
@@ -169,7 +169,7 @@ print([shard["file"] for shard in picked], sum(s["bytes"] for s in picked))
 |------|------|--------|------|------|
 | `base` | `anime.base.jsonlines.gz` | 7 | ~1.1 MB | `sid`、`name`、`name_original`、`updatedAt`、`date`、`meta_tags`、`nsfw` |
 | `meta` | `anime.meta.jsonlines.gz` | 20 | ~2.0 MB | infobox 解析出的 19 个中文列 |
-| `relations` | `anime.relations.jsonlines.gz` | 2 | ~0.3 MB | `关联的动漫ID` |
+| `relations` | `anime.relations.jsonlines.gz` | 3 | ~0.4 MB | `关联条目ID`（全部关联条目）、`关联的动漫ID`（只含 type=2 动画） |
 | `stats` | `anime.stats.jsonlines.gz` | 8 | ~1.6 MB | `platform`、`series`、`score`、`rank`、`score_details`、`favorite`、`tags` |
 | `summary` | `anime.summary.jsonlines.gz` | 2 | ~7.8 MB | `summary`（简介） |
 | `infobox` | `anime.infobox.jsonlines.gz` | 2 | ~8.4 MB | `infobox`（wiki 原文） |
@@ -183,13 +183,13 @@ print([shard["file"] for shard in picked], sum(s["bytes"] for s in picked))
 
 | 场景 | 下载分片 | 体积 | 相对旧单片 |
 |------|----------|------|-----------|
-| 极简（只同步条目名与日期） | `base` | ~1.1 MB | **−94.7%** |
-| **默认**（Excel 标准列） | `base` + `meta` + `relations` | ~3.4 MB | **−83.8%** |
-| 含评分/排名列 | + `stats` | ~5.0 MB | −76.3% |
-| 含简介列 | + `summary` | ~12.8 MB | −38.7% |
-| 全量 | 全部 6 片 | ~21.1 MB | — |
+| 极简（只同步条目名与日期） | `base` | ~1.1 MB | **−94.9%** |
+| **默认**（Excel 标准列） | `base` + `meta` + `relations` | ~3.4 MB | **−83.6%** |
+| 含评分/排名列 | + `stats` | ~5.0 MB | −76.1% |
+| 含简介列 | + `summary` | ~12.8 MB | −38.8% |
+| 全量 | 全部 6 片 | ~21.2 MB | — |
 
-> 旧单片为 20.86 MiB。Excel 实际用到的 27 列压缩后只有 **3.37 MiB**，所以默认方案能省掉约 84% 的下载量。
+> 旧单片为 20.86 MiB。Excel 实际用到的 28 列压缩后只有 **3.42 MiB**，所以默认方案能省掉约 84% 的下载量。
 > `summary`（29%）与 `infobox`（48%）两片占了全部体积的 77%，因此单独成片 —— 只要简介的场景不必把 infobox 一起拖下来。
 
 > **为什么数据文件要 gzip 压缩？**
@@ -216,10 +216,21 @@ print([shard["file"] for shard in picked], sum(s["bytes"] for s in picked))
 
 ```jsonl
 ["sid","播放结束","动画制作公司","话数","片长","制片国家","语言","类型","导演","音乐","人物设定","机械设定","原作","脚本","分镜","演出","原案","系列构成","在线播放平台","别名"]
-["8","2008年9月28日","サンライズ、david production、スタジオガッツ；作画协力：GONZO","25","","","","","谷口悟朗","中川幸太郎、黒石ひとみ","木村貴宏","寺岡賢司、沙倉拓実；Knightmare设计：安田朗、中田栄治、阿久津潤一","","","","","故事原案：大河内一楼、谷口悟朗","大河内一楼","85 | 344 | 793 | … | 667019","叛逆的鲁路修R2 | …"]
+["8","2008年9月28日","サンライズ、david production、スタジオガッツ；作画协力：GONZO","25","","","","","谷口悟朗","中川幸太郎、黒石ひとみ","木村貴宏","寺岡賢司、沙倉拓実；Knightmare设计：安田朗、中田栄治、阿久津潤一","","","","","故事原案：大河内一楼、谷口悟朗","大河内一楼","","叛逆的鲁路修R2 | Code Geass: Hangyaku no Lelouch R2 | …"]
 ```
 
-> 为便于阅读，上例中 `关联的动漫ID`、`别名` 等长值已用 `…` 截断，第二条记录已省略。
+再以 `relations` 片为例（`sid` + 两个语义不同的关联列）：
+
+```jsonl
+["sid","关联条目ID","关联的动漫ID"]
+["8","85 | 344 | 793 | … | 667019","793 | 35866 | 99952 | 199228 | 199229 | 199230 | 199231"]
+```
+
+> `关联条目ID` 是 **全部** 关联条目（书籍/音乐/游戏/三次元都算），`关联的动漫ID` 只保留其中
+> **属于动画（type=2）** 的那部分，所以后者恒为前者的子集。实测 84,183 条关联里只有 35.2% 指向动画，
+> 且 5,351 个条目的关联**全部**不是动画（这些行的 `关联的动漫ID` 为空、`关联条目ID` 非空）。
+
+> 为便于阅读，上例中 `别名`、`关联条目ID` 等长值已用 `…` 截断，第二条记录已省略。
 > 仍然是合法的 JSON Lines：**每行一个合法的 JSON 值**（这里是数组）。
 > 值数组的顺序与长度**严格对应该片的表头**；缺失字段补默认值（字符串 `""`、`meta_tags`/`score_details`/`favorite` 补数组、`nsfw`/`series` 补 `false`、`platform`/`score`/`rank` 补 `0`）。
 > 字段名只在各片表头出现一次；嵌套结构（`tags`/`score_details`/`favorite`）再做结构压缩，合计省约 7 MiB，且完全无损。
@@ -323,7 +334,7 @@ console.log(rows.length, rows[0].name);
 
 #### 字段说明
 
-输出字段共 **36 个**（不含 `type`），按分片归为 6 组；`sid` 为唯一必填主键，其余字段均为可选。
+输出字段共 **37 个**（不含 `type`），按分片归为 6 组；`sid` 为唯一必填主键，其余字段均为可选。
 每个字段出现在**且仅出现**在一个分片里（`sid` 例外，每片都有）。
 
 ##### 基础字段（4 个）
@@ -369,11 +380,12 @@ console.log(rows.length, rows[0].name);
 | <span style="color:#2da44e">**系列构成**</span> | 系列构成 | 字符串 |
 | <span style="color:#2da44e">**在线播放平台**</span> | 在线播放平台 | 字符串 |
 
-##### 关联字段（1 个）<span style="color:#2da44e"> 新增 2026-06-19</span>
+##### 关联字段（2 个）<span style="color:#2da44e"> 新增 2026-06-19</span>
 
 | 字段名 | 含义 | 数据类型 |
 |--------|------|----------|
-| <span style="color:#2da44e">**关联的动漫ID**</span> | 关联的动画条目ID | 字符串（多个ID以` \| `分隔） |
+| <span style="color:#2da44e">**关联条目ID**</span> | **全部**关联条目 ID，不分被关联条目的类型（书籍 1 / 音乐 3 / 游戏 4 / 三次元 6 都算）<span style="color:#2da44e"> 新增 2026-09-18</span> | 字符串（多个ID以` \| `分隔） |
+| <span style="color:#2da44e">**关联的动漫ID**</span> | 只保留其中属于**动画（type=2）**的关联条目 ID，**恒为 `关联条目ID` 的子集**<span style="color:#2da44e"> 语义收窄 2026-09-18</span> | 字符串（多个ID以` \| `分隔） |
 
 ##### 全量保真扩展（9 个，`stats` 片 7 个 + `summary`/`infobox` 各 1 个）<span style="color:#2da44e"> 新增 2026-09-13</span>
 

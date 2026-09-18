@@ -53,10 +53,11 @@
       "file": "anime.relations.jsonlines.gz",
       "fields": [
         "sid",
+        "关联条目ID",
         "关联的动漫ID"
       ],
-      "bytes": 358696,
-      "sha256": "f4100cb7d6fbb23bec700422455d9889b6def520d90bb798bc08f4819a1eff79"
+      "bytes": 401958,
+      "sha256": "341a58cb28fee3f6584164a309de32360cdc8ec52f0cd7be2b7087530bfc1cd7"
     },
     {
       "name": "stats",
