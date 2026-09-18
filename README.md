@@ -63,8 +63,6 @@ Bangumi-Archive-Anime-Excel/
 │   │   └── 差异数据_type2_*.html         # 差异可视化
 │   └── 2026-07-28_to_2026-08-04/
 │       └── ...
-├── config/
-│   └── field_mappings.json              # 字段映射配置
 ├── .gitattributes                       # `*.gz` 按二进制处理（不做行尾归一化/文本 diff）
 ├── LICENSE
 └── README.md
