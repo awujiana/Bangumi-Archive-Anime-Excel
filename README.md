@@ -352,10 +352,10 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 1. **Bangumi 官方**每周三凌晨发布 wiki 数据 dump
 2. **Archive 项目**下载 dump 并处理：
    - 解析 infobox、生成 Excel 全量存档与差异报告
-   - 执行 `step09_build_jsonl.py` 生成 `bangumi.jsonlines.gz`（表头 + 值数组，gzip 压缩）
+   - 执行 `step09_build_jsonl.py` 生成 6 个字段分片 `anime.<shard>.jsonlines.gz` + 清单 `anime.manifest.json`（各片为「表头 + 值数组」，gzip 压缩）
    - 执行 `step10_sync_diff.py` 同步差异摘要到本仓库
 3. **本仓库**由 Archive 项目的 `push_data_repository.py` 自动提交：
-   - 先执行 `Archive/scripts/update_badges.py`，把本 README 的徽章与统计信息对齐到最新的 `bangumi.jsonlines.gz`
+   - 先执行 `Archive/scripts/update_badges.py`，把本 README 的徽章与统计信息对齐到最新的 `data/anime.manifest.json`
    - 再 `git add` + `git commit` + `git push` 更新到 GitHub
 4. **BGM 插件**先拉 `data/anime.manifest.json`，按用户表头决定要哪些分片，再逐个下载并解压
 
