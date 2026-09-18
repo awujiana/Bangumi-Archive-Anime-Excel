@@ -107,15 +107,15 @@ BGM 插件通过 raw URL 读取的动画数据，**按字段类别切成 6 片**
   "formatVersion": 1,
   "subjectType": 2,
   "typeLabel": "anime",
-  "updatedAt": "2026-09-08",
-  "recordCount": 30836,
+  "updatedAt": "2026-09-15",
+  "recordCount": 30889,
   "shards": [
     {
       "name": "base",
       "file": "anime.base.jsonlines.gz",
       "fields": ["sid", "name", "name_original", "updatedAt", "date", "meta_tags", "nsfw"],
-      "bytes": 1114259,
-      "sha256": "7a63103de0fd5284c11dee2d4225d59f57e6264b7acee4c921bf8347f93deb8b"
+      "bytes": 1116384,
+      "sha256": "bfd21edbdda100f2a082e787d190e98471bf8e1c536ed583586356df5fec3cee"
     }
   ]
 }
@@ -197,7 +197,7 @@ print([shard["file"] for shard in picked], sum(s["bytes"] for s in picked))
 > 且 GitHub raw CDN **不会**对它做透明压缩——实测 `.jsonlines` 返回 `Content-Type: application/octet-stream`
 > 且**没有** `Content-Encoding` 头，客户端每次同步都要拉满 55.83 MiB。
 > 因此在**生产端**就压成 gzip（`compresslevel=9` + `mtime=0`，相同内容产出完全相同的字节，便于哈希比对）：
-> 仓库体积与单次下载量都降到 **21.11 MiB（−62%）**。
+> 仓库体积与单次下载量都降到 **21.23 MiB（−62%）**。
 > 消费端（BGM 插件）用浏览器原生 `DecompressionStream('gzip')` 解压，不引入任何第三方依赖，
 > 并按 gzip 魔数（`1f 8b`）自动识别，明文数据源同样可以直接读取。
 
