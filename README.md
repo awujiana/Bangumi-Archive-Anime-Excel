@@ -123,6 +123,48 @@ BGM 插件通过 raw URL 读取的动画数据，**按字段类别切成 6 片**
 
 > 上面只列了 `base` 一片，实际有 6 项；`sha256` 可用于下载后的完整性校验。
 
+##### 清单的使用方法
+
+清单是**唯一入口**：一次 GET（2 KB 出头）就能知道「有哪些片、每片有哪些字段、多大、sha256 是多少」，不必靠 404 试探某个片存不存在。
+
+| 字段 | 含义 |
+|------|------|
+| `formatVersion` | 布局版本号，当前为 `1`；未来出现不兼容变更时递增 |
+| `subjectType` / `typeLabel` | 数据类型（`2` / `"anime"`），对应 Bangumi 的 `type=2` |
+| `updatedAt` | 数据日期（`YYYY-MM-DD`） |
+| `recordCount` | 总记录数；**每片的行数都与它一致** |
+| `shards[].name` | 分片短名（`base`/`meta`/`relations`/`stats`/`summary`/`infobox`） |
+| `shards[].file` | 实际文件名，拼到 `data/` 之后即为下载路径 |
+| `shards[].fields` | 该片的字段名，顺序与片内表头**完全一致** |
+| `shards[].bytes` | **压缩后**字节数，用于下载完整性校验 |
+| `shards[].sha256` | **压缩后**字节的 SHA-256，严格校验用 |
+
+用法四步：
+
+1. **选片**：拿你需要的字段名与各片 `fields` 求交集，命中即下载该片（`base` 恒为必选）
+2. **下载**：`https://raw.githubusercontent.com/awujiana/Bangumi-Archive-Anime-Excel/main/data/` + `shard.file`
+3. **校验**：比对实际字节数与 `bytes`（更严格可再算 `sha256`）
+4. **拼接**：各片行序一致且都带 `sid`，按**行号**对齐合并即可
+
+```python
+import json
+import urllib.request
+
+BASE = "https://raw.githubusercontent.com/awujiana/Bangumi-Archive-Anime-Excel/main/data/"
+manifest = json.load(urllib.request.urlopen(BASE + "anime.manifest.json"))
+
+wanted = {"sid", "name", "date", "score", "rank"}          # 你的表格要用到的列
+picked = [
+    shard
+    for shard in manifest["shards"]
+    if shard["name"] == "base" or wanted & set(shard["fields"])
+]
+print([shard["file"] for shard in picked], sum(s["bytes"] for s in picked))
+```
+
+> ⚠️ **选片的坑**：`sid` 出现在**每一片**的 `fields` 里，所以「包含 `sid` 就说明这片必需」会让 6 片全中、选片彻底失效。
+> 正确做法是把 `sid` 从判据里排除，并用 `updatedAt`、`name`（两者只在 `base` 里）作为「必须下 `base`」的锚点。
+
 | 分片 | 文件 | 字段数 | 大小 | 内容 |
 |------|------|--------|------|------|
 | `base` | `anime.base.jsonlines.gz` | 7 | ~1.1 MB | `sid`、`name`、`name_original`、`updatedAt`、`date`、`meta_tags`、`nsfw` |
@@ -183,6 +225,101 @@ BGM 插件通过 raw URL 读取的动画数据，**按字段类别切成 6 片**
 > 字段名只在各片表头出现一次；嵌套结构（`tags`/`score_details`/`favorite`）再做结构压缩，合计省约 7 MiB，且完全无损。
 > 消费端解析约定：**每个分片的首个非空行必须是纯字符串数组（表头）**，其后每行必须是等长数组。
 > 各片**行序一致**且都带 `sid`，所以拼接时按行号对齐即可。
+
+#### 解压方式
+
+6 个分片都是**标准 gzip**（魔数 `1f 8b`），任何 gzip 工具都能解：
+
+| 场景 | 命令 |
+|------|------|
+| Linux / macOS（解压并保留 `.gz`） | `gzip -dk anime.base.jsonlines.gz` |
+| Linux / macOS（解压后删除 `.gz`） | `gunzip anime.base.jsonlines.gz` |
+| 只看前几行、不落地文件 | `gzip -dc anime.base.jsonlines.gz \| head -n 3` |
+| Windows 10+（自带 `tar`） | `tar -xf anime.base.jsonlines.gz` |
+| Python（标准库） | `gzip.open("anime.base.jsonlines.gz", "rt", encoding="utf-8")` |
+| 浏览器 / Node 18+ | `DecompressionStream("gzip")`（BGM 插件即用此方式，零依赖） |
+
+解压后得到同名去掉 `.gz` 的 `anime.base.jsonlines`，即明文 JSON Lines。
+
+> ⚠️ **不要把 `.gz` 当文本直接读**。GitHub raw CDN 对 `.jsonlines.gz` 返回的是原始二进制
+> （`Content-Type: application/octet-stream`，**没有** `Content-Encoding: gzip`），
+> 用 `fetch(...).text()` 或 `curl ... | head` 直接看只会得到乱码。
+
+#### 使用方法：下载 → 解压 → 校验 → 拼接
+
+一次把 6 片全部下下来（约 21 MiB），解压后按行号拼成完整记录：
+
+```bash
+BASE=https://raw.githubusercontent.com/awujiana/Bangumi-Archive-Anime-Excel/main/data
+mkdir -p bangumi-data && cd bangumi-data
+
+# 1) 取清单
+curl -sO "$BASE/anime.manifest.json"
+
+# 2) 按清单里的 file 逐个下载并解压（-k 保留 .gz，便于核对字节数）
+for f in $(python -c "import json;print(' '.join(s['file'] for s in json.load(open('anime.manifest.json'))['shards']))"); do
+  curl -sO "$BASE/$f" && gzip -dk "$f"
+done
+
+# 3) 校验：逐个比对清单里的 bytes 与 sha256
+python - <<'PY'
+import hashlib
+import json
+
+manifest = json.load(open("anime.manifest.json", encoding="utf-8"))
+for shard in manifest["shards"]:
+    blob = open(shard["file"], "rb").read()
+    assert len(blob) == shard["bytes"], f"{shard['file']}: 字节数不符"
+    assert hashlib.sha256(blob).hexdigest() == shard["sha256"], f"{shard['file']}: 哈希不符"
+print("校验通过", sum(s["bytes"] for s in manifest["shards"]), "字节")
+PY
+```
+
+拼接与查询（Python）：
+
+```python
+import gzip
+import json
+
+manifest = json.load(open("anime.manifest.json", encoding="utf-8"))
+rows = [{} for _ in range(manifest["recordCount"])]
+
+for shard in manifest["shards"]:
+    with gzip.open(shard["file"], "rt", encoding="utf-8") as fh:
+        header = json.loads(fh.readline())          # 第 1 行是表头
+        for i, line in enumerate(fh):               # 其后每行是等长值数组
+            rows[i].update(zip(header, json.loads(line)))
+
+print(len(rows), rows[0]["name"], rows[0]["date"])
+```
+
+BGM 插件（浏览器 / Node 18+）走的是同一条链路，只是用原生 `DecompressionStream` 解压，不引第三方依赖：
+
+```js
+const BASE = "https://raw.githubusercontent.com/awujiana/Bangumi-Archive-Anime-Excel/main/data/";
+const manifest = await (await fetch(`${BASE}anime.manifest.json`)).json();
+
+const rows = Array.from({ length: manifest.recordCount }, () => ({}));
+for (const shard of manifest.shards) {
+  const buf = await (await fetch(`${BASE}${shard.file}`)).arrayBuffer();
+  // raw CDN 不做透明解压，这里必须自己解 gzip
+  const text = await new Response(
+    new Blob([buf]).stream().pipeThrough(new DecompressionStream("gzip")),
+  ).text();
+  const [headerLine, ...valueLines] = text.trim().split("\n");
+  const header = JSON.parse(headerLine);
+  valueLines.forEach((line, i) => {
+    const values = JSON.parse(line);
+    header.forEach((field, j) => {
+      rows[i][field] = values[j];
+    });
+  });
+}
+console.log(rows.length, rows[0].name);
+```
+
+> 只想要某几列时不必拼全量：按 `fields` 只下需要的片（见上方「插件按表头自动选片」）。
+> 例如单独下 `base` 就能拿到 `sid`/`name`/`date` 等基础列，约 1.1 MB。
 
 #### 字段说明
 
