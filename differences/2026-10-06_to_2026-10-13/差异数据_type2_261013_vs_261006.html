@@ -1,0 +1,3797 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>差异对比报告 - 26年10月13日对比26年10月6日</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 10px; margin-bottom: 20px; }
+        .header h1 { font-size: 24px; margin-bottom: 10px; }
+        .stats { display: flex; gap: 20px; margin-top: 15px; }
+        .stat-item { background: rgba(255,255,255,0.2); padding: 15px 25px; border-radius: 8px; text-align: center; }
+        .stat-item .number { font-size: 28px; font-weight: bold; }
+        .stat-item .label { font-size: 14px; opacity: 0.9; }
+        .added-stat { background: #d4edda !important; color: #155724; }
+        .deleted-stat { background: #f8d7da !important; color: #721c24; }
+        .modified-stat { background: #fff3cd !important; color: #856404; }
+        
+        .tabs { display: flex; gap: 5px; margin-bottom: 20px; }
+        .tab { padding: 12px 24px; background: #e9ecef; border: none; border-radius: 8px 8px 0 0; cursor: pointer; font-size: 14px; transition: all 0.3s; }
+        .tab:hover { background: #dee2e6; }
+        .tab.active { background: white; color: #667eea; font-weight: bold; }
+        
+        .section { background: white; border-radius: 0 0 10px 10px; padding: 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: none; }
+        .section.active { display: block; }
+        
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th { background: #f8f9fa; padding: 12px 10px; text-align: left; border-bottom: 2px solid #dee2e6; position: sticky; top: 0; white-space: nowrap; }
+        td { padding: 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+        tr:hover { background: #f8f9fa; }
+        
+        .id-col { color: #667eea; font-weight: bold; width: 80px; }
+        .name-cn { font-weight: bold; color: #333; max-width: 200px; }
+        .name { color: #666; max-width: 200px; }
+        .summary { background: #fff3cd; padding: 8px; border-radius: 4px; font-size: 12px; color: #856404; }
+        .url-link { color: #667eea; text-decoration: none; }
+        .url-link:hover { text-decoration: underline; }
+        
+        .empty { text-align: center; padding: 40px; color: #999; }
+        
+        .filter-bar { margin-bottom: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px; }
+        .filter-bar input { padding: 8px 15px; border: 1px solid #ddd; border-radius: 5px; width: 300px; }
+        .filter-bar select { padding: 8px 15px; border: 1px solid #ddd; border-radius: 5px; }
+        
+        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; }
+        .back-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="差异对比报告.html" class="back-link">📊 返回汇总报告</a>
+        
+        <div class="header">
+            <h1>📋 详细差异数据报告</h1>
+            <p>26年10月13日对比26年10月6日</p>
+            <div class="stats">
+                <div class="stat-item added-stat">
+                    <div class="number">97</div>
+                    <div class="label">新增</div>
+                </div>
+                <div class="stat-item deleted-stat">
+                    <div class="number">0</div>
+                    <div class="label">删除</div>
+                </div>
+                <div class="stat-item modified-stat">
+                    <div class="number">321</div>
+                    <div class="label">修改</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab active" onclick="showSection('added')">📥 新增 (97)</button>
+            <button class="tab" onclick="showSection('deleted')">📤 删除 (0)</button>
+            <button class="tab" onclick="showSection('modified')">✏️ 修改 (321)</button>
+        </div>
+        
+        <div id="added" class="section active">
+            <div class="filter-bar">
+                <input type="text" id="searchAdded" placeholder="搜索名称或ID..." onkeyup="filterTable('added', this.value)">
+            </div>
+            <div class="table-container">
+<table id="tableAdded">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>name_cn</th>
+                        <th>name</th>
+                        <th>放送开始</th>
+                        <th>话数</th>
+                        <th>动画制作</th>
+                        <th>类型</th>
+                        <th>platform</th>
+                        <th>URL</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">ラキラキ</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Du-Du-Wa DO IT!!</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">SPIN</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Fortress Defense</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">暁に鳴る</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Bubee</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">許婚っきゅん</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">SHINING LINE*</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">キライのちスキ!</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">FX戦士くるみちゃん</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">AIKATSU! ×AIKATSU!</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">START DASH SENSATION</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">青春の演舞</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Lovely Party Collection</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">KIRA☆Power</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Signalize</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Presence</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">ダイヤモンドハッピー</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Swingin&#39; Magic</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">シンクロブルー</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">無心拍数</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">逃光行</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">螺旋</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">ミスター・ムーンライト</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">ウォーアイニー</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">素直未満</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">風の中は走るっきゃないっ！</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">长崎小马驹</td>
+                        <td class="name">ながさきの子うま</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫的宠物特工</td>
+                        <td class="name">Garfield&#39;s Pet Force</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">new world (Official Music Vide...</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">meow mix</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫之重获新生</td>
+                        <td class="name">Garfield Gets a Life</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫进城</td>
+                        <td class="name">Garfield on the Town</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">【原来这就是所谓的世界】原创MV</td>
+                        <td class="name">「それを世界と言うんだね」原创MV</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">幻影游船</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫的感恩节</td>
+                        <td class="name">Garfield&#39;s Thanksgiving</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">妈妈对不起</td>
+                        <td class="name">おかあちゃんごめんね</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Nike - Onwards</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫在天堂</td>
+                        <td class="name">Garfield in Paradise</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">【Animation MV】リスポーン!!</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">人妻と寝取られ旅行</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">The New Exhibition</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Aos Olhos de Uma Criança</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫的侦探故事</td>
+                        <td class="name">Garfield&#39;s Babes and Bullets</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">June: Life is Better When You ...</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Dark Horse Motion Comics</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">メイドインアビス ひめさま日記</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">空罐三线琴</td>
+                        <td class="name">かんからさんしん</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">爱幻想的加菲猫</td>
+                        <td class="name">Garfield&#39;s Feline Fantasies</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">最小的机器人</td>
+                        <td class="name">The Littlest Robo</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Mon été à la cité</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">拳击手</td>
+                        <td class="name">ザ・ボクサー</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">DO SON</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Dr.STONE TERRAFORMING</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">MEOW</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">姬百合之塔：生命宝藏物语</td>
+                        <td class="name">ひめゆりの塔（命ど宝物語）</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">鵺之阴阳师</td>
+                        <td class="name">鵺の陰陽師</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫短片</td>
+                        <td class="name">Garfield Originals</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫的九条命：前世今生</td>
+                        <td class="name">Garfield: His 9 Lives</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Here Comes Garfield</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫的万圣节冒险</td>
+                        <td class="name">Garfield&#39;s Halloween Adventure</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫：现实世界历险记</td>
+                        <td class="name">Garfield Gets Real</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫的狂欢节</td>
+                        <td class="name">Garfield&#39;s Fun Fest</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">最后的空袭</td>
+                        <td class="name">最後の空襲くまがや</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫前往好莱坞</td>
+                        <td class="name">Garfield Goes Hollywood</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Haut pays des neiges</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">星夜</td>
+                        <td class="name">별이 빛나는 밤에</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">宝可梦动画图鉴 第六季 云岫寻踪</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫圣诞节特别奉献</td>
+                        <td class="name">A Garfield Christmas</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">史前探险记</td>
+                        <td class="name">Cesta do pravěku</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">光之旅人梅洛</td>
+                        <td class="name">光の旅人メロウ</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">普罗米修斯</td>
+                        <td class="name">Prometheus</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">金色木之美</td>
+                        <td class="name">La Belle au Bois d&#39;Or</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Safe.</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Codes of Honor</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">风滚草的复仇</td>
+                        <td class="name">Tumbleweed(2020)</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">漫威丧尸：冬日战士</td>
+                        <td class="name">Marvel Zombies: The Winter Sol...</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">爱情是什么</td>
+                        <td class="name">À quoi ça sert l’amour ?</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Will</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">漫威丧尸：孔苏之拳</td>
+                        <td class="name">Marvel Zombies: The Fist of Kh...</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Hématome</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">牛头</td>
+                        <td class="name">牛頭</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Macabre at Lighthouse Lake</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">原爆之子</td>
+                        <td class="name">原爆の子</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">漫威丧尸：最后的护卫队</td>
+                        <td class="name">Marvel Zombies: The Last Guard...</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">天国大魔境—漫画PV</td>
+                        <td class="name">天国大魔境PV</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">小臭臭</td>
+                        <td class="name">Little Tinker</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">人間うごくいのお</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫在郊外</td>
+                        <td class="name">Garfield in the Rough</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Avatar Kuruk: Wave of Chaos</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">LONELINESS WILL SHINE</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">思美定邦德和G-17号♡5</td>
+                        <td class="name">セメダイン・ボンドとG-17号♡5</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">あらたないろは</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Emily and the Strangers: Calli...</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">再婚皇后</td>
+                        <td class="name">再婚承認を要求します</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">牧神记5</td>
+                        <td class="name">牧神记 伍</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+<tr>
+                        <td class="id-col"></td>
+                        <td class="name-cn">关于吃了魔兽肉就登上王位这档事</td>
+                        <td class="name">モンスターの肉を食っていたら王位に就いた件</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="https://bgm.tv/subject/" target="_blank" class="url-link">打开</a></td>
+</tr>
+                </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div id="deleted" class="section">
+            <div class="filter-bar">
+                <input type="text" id="searchDeleted" placeholder="搜索名称或ID..." onkeyup="filterTable('deleted', this.value)">
+            </div>
+            <div class="table-container">
+<div class="empty">暂无删除数据</div>
+
+            </div>
+        </div>
+        <div id="modified" class="section">
+            <div class="filter-bar">
+                <input type="text" id="searchModified" placeholder="搜索修改总结或名称..." onkeyup="filterTable('modified', this.value)">
+            </div>
+            <div class="table-container">
+<table id="tableModified">
+                <thead>
+                    <tr>
+                        <th>修改总结</th>
+                        <th>id</th>
+                        <th>name_cn</th>
+                        <th>name</th>
+                        <th>放送开始</th>
+                        <th>类型</th>
+                    </tr>
+                </thead>
+                <tbody>
+<tr>
+                        <td><div class="summary">日文名: 沙盒OP; description: 新增 沙盒</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">沙盒OP</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (84→199字符); meta_tags: [&#39;百合&#39;, &#39;TV&#39;, &#39;日本&#39;, &#39;漫画改&#39;] → [&#39;TV&#39;, &#39;日本&#39;, &#39;漫画改&#39;, &#39;日常&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">道口时间</td>
+                        <td class="name">踏切時間</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: Fune o Amu | Th → Fune wo Amu | F</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">编舟记</td>
+                        <td class="name">舟を編む</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;战斗&#39;, &#39;玄幻&#39;, &#39;小说改&#39;, &#39;中国&#39;, &#39;WEB → [&#39;WEB&#39;, &#39;中国&#39;, &#39;小说改&#39;, &#39;战斗&#39;, &#39;玄幻; Copyright: [新增] 上海宽娱数码科技有限公司; 主题歌作曲: [新增] 片头曲：付尧 / 片尾曲：白杨; 主题歌作词: [新增] 片头曲：于晓明 / 片尾曲：白; 主题歌演出: [新增] 片头曲：戴荃 / 片尾曲：王伟; 主题歌编曲: ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">永生 第五季</td>
+                        <td class="name">永生 第五季</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: 鳥山明、山室直儀 → 鳥山明；动画人物设定：山室直儀; 企画: 鳥嶋和彦、森下孝三；协力：Vジ → 鳥嶋和彦、森下孝三; 制片人: 冨永理生子、ギャルマト・ボグダ → 冨永理生子、ギャルマト・ボグダ; 原作: [新增] 鳥山明; 导演: [新增] 細田雅弘; 色彩设计: 堀田哲平；辅佐：竹澤聡 → 堀田哲平; ...还有3项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">龙珠Z 神与神</td>
+                        <td class="name">ドラゴンボールZ 神と神</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;冒险&#39;, &#39;美国&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">丛林大反攻2</td>
+                        <td class="name">Open Season 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原画: 荒井和人、新井博慧、頂真司、伊 → 荒井和人、新井博慧、頂真司、伊</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">舰队Collection 剧场版</td>
+                        <td class="name">劇場版 艦これ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 新房昭之(NC)、芦野芳晴(1 → 芦野芳晴(1-3)、笹木信作(</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">魔法少女小圆</td>
+                        <td class="name">魔法少女まどか☆マギカ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">第二原画: 岡田洋奈、工藤友靖、松岡未沙、 → 岡田洋奈、工藤友靖、松岡未沙、</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">偶像活动 MUSIC AWARD 让我们一起领奖吧！</td>
+                        <td class="name">アイカツ! ミュージックアワード みんなで賞をもらっちゃいま...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日文名: IRON MAN → IRON MAN -アイアンマン-; 3DCG: [新增] MADBOX; 企画: [新增] 丸山正雄; 作画监督: [新增] 梅原隆弘、張吉容、김동준、이현; 分镜: [新增] 佐藤雄三、川村賢一、西村聡、川; 别名: [已删除]; 制片人: [新增] 森島太朗、原史倫、Cort L; 剪辑: [新增] 河西直樹、寺内聡; 副导演: [新增] 川村賢一; 动画制作...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">钢铁侠</td>
+                        <td class="name">IRON MAN -アイアンマン-</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;欧美&#39;, &#39;美国&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;奇幻&#39;, &#39;原创&#39;, &#39;美国&#39;; 製作: [新增] Columbia Pictur</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">精灵旅社3：疯狂假期</td>
+                        <td class="name">Hotel Transylvania 3: Summer V...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">製作: [已删除]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">啄木鸟伍迪 电视版 第一季</td>
+                        <td class="name">The Woody Woodpecker Show</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加简介; 别名: 电影 | 残念生物事典 → 电影 遗憾生物事典 | 遗憾的; 片长: [新增] 90分钟; 中文名: 电影 遗憾生物事典 → 电影版残念生物事典</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">电影版残念生物事典</td>
+                        <td class="name">映画ざんねんないきもの事典</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (225→398字符)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">套房里的助教大人</td>
+                        <td class="name">원룸 조교님</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">作画监督: 市川美帆、廣瀬智仁、星野真澄、 → 市川美帆、廣瀬智仁、星野真澄、</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">超级弹丸论破2.5 狛枝凪斗与世界的破坏者</td>
+                        <td class="name">スーパーダンガンロンパ2.5 狛枝凪斗と世界の破壊者</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: [新增] Sword Art Onlin</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">刀剑神域 Extra Edition</td>
+                        <td class="name">ソードアート・オンライン Extra Edition</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;科幻&#39;, &#39;同人&#39;, &#39;剧场版&#39;]; 片长: 2分54秒 → 3分钟; 添加中文名: 觉醒</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">觉醒</td>
+                        <td class="name">AWAKE</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">平台: 5 → 2006; meta_tags: [&#39;恋爱&#39;, &#39;日本&#39;, &#39;穿越&#39;, &#39;小说改&#39;, &#39;韩国&#39; → [&#39;恋爱&#39;, &#39;日本&#39;, &#39;穿越&#39;, &#39;小说改&#39;, &#39;韩国&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">黒幕の世話係になりました</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">製作: スクウェア・エニックス、ジェン → スクウェア・エニックス、ジェン</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">刀使巫女 刻印一闪的灯火 OVA</td>
+                        <td class="name">刀使ノ巫女 刻みし一閃の燈火 OVA</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加简介; 日文名: 赤ずきんチャチャOVA → 赤ずきんチャチャ OVA; 主题歌作曲: [新增] 松浦有希; 主题歌作词: [新增] 松浦有希; 主题歌演出: [新增] 松浦有希; 主题歌编曲: [新增] 松浦有希; 人物设定: [新增] 渡辺はじめ; 企画: [新增] 片岡義朗; 作画监督: [新增] 音地正行; 分镜: [新增] 辻初樹; 制片人: [新增] 松下洋子、若菜章夫; 剪辑: ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">小红帽恰恰 OVA</td>
+                        <td class="name">赤ずきんチャチャ OVA</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 新房昭之(NC)、福田道生(1 → 福田道生(1,8,10)、森義</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">再见绝望先生</td>
+                        <td class="name">さよなら絶望先生</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 女神的露天咖啡厅 | Mega → 女神的露天咖啡厅 | The </div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">女神咖啡厅</td>
+                        <td class="name">女神のカフェテラス</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原作: [新增] Alfred Bester</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">群星，我的归宿</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 1978-01-01 → 1978-01-05; meta_tags: [&#39;剧场版&#39;, &#39;韩国&#39;] → [&#39;剧场版&#39;, &#39;原创&#39;, &#39;韩国&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">똘이장군 제3땅굴편</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;原创&#39;] → [&#39;剧场版&#39;, &#39;原创&#39;, &#39;运动&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">电影 后空翻!!</td>
+                        <td class="name">映画 バクテン!!</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (387→388字符); meta_tags: [&#39;剧场版&#39;] → [&#39;科幻&#39;, &#39;剧场版&#39;, &#39;原创&#39;]; 添加中文名: 阵列之镜</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">阵列之镜</td>
+                        <td class="name">アレイの鏡</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加简介; 添加中文名: 名侦探柯南 解开中暑之谜</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">名侦探柯南 解开中暑之谜</td>
+                        <td class="name">名探偵コナン 熱中症の謎を解け！</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (186→183字符); 话数: 1 → 2</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">蹂躙王国</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">导演: [新增] 山内重保</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">龙珠Z 两人的危机</td>
+                        <td class="name">ドラゴンボールZ 危険なふたり!超戦士はねむれない</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">剪辑: 西出榮子 → 西出榮子[西出栄子]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">爆热时空</td>
+                        <td class="name">MAZE☆爆熱時空</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;美国&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;冒险&#39;, &#39;萌系&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">冲浪企鹅</td>
+                        <td class="name">Surf&#39;s Up</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: [新增] じん; 主题歌作词: [新增] じん; 主题歌演出: [新增] MARiA from GARN; 主题歌编曲: [新增] じん / ANANT-GARD; 人物原案: しづ、わんにゃんぷー → しづ・わんにゃんぷー; 企画: 岩上敦宏、久保田光俊、村山久美 → 岩上敦宏、久保田光俊、村山久美; 作画监督: 大梶博之、松本元気、藤本真由、 → 中村直人(OP,12)、大梶博;...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">目隐都市的演绎者</td>
+                        <td class="name">メカクシティアクターズ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (59→60字符); meta_tags: [&#39;同人&#39;] → [&#39;同人&#39;, &#39;OVA&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">新造人間ストラグルバニー</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">剪辑: [新增] 新海コウキ(柳編集室); 背景美术: [新增] クリティカルラー八木、塩にぎり; 製作: [新增] Media Bank/Blue</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">村又小姐的爱情</td>
+                        <td class="name">村又さんの愛情</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (324→325字符); 官方网站: https://www.tbs → https://www.tbs</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">章鱼哔的原罪</td>
+                        <td class="name">タコピーの原罪</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: [新增] Odekake Kozame </div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">小鲨鱼去郊游 第二季</td>
+                        <td class="name">おでかけ子ザメ シーズン2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原画: 志田ただし、和田佳純、大久保政 → 志田ただし、和田佳純、大久保政; 第二原画: 福田瑞穂、佐久間梓、藤田あずさ → 福田瑞穂、佐久間梓、藤田あずさ</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">宝石宠物 Happiness</td>
+                        <td class="name">ジュエルペット ハッピネス</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加日期: 2027-01-15; 添加简介; meta_tags: 新增 [&#39;科幻&#39;, &#39;剧场版&#39;, &#39;机战&#39;, &#39;日本&#39;, &#39;原创&#39;; CG 导演: [新增] 佐藤光裕、櫛田健介; Copyright: [新增] © サンライズ; 原作: [新增] 矢立肇、富野由悠季; 官方网站: [新增] https://gundam-; 摄影监督: [新增] 葛山剛士、飯島亮; 机械设定: [新增] 大河...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">机动战士高达SEED FREEDOM ZERO</td>
+                        <td class="name">機動戦士ガンダムSEED FREEDOM ZERO</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;原创&#39;, &#39;欧美&#39;, &#39;美国&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;奇幻&#39;, &#39;原创&#39;, &#39;美国&#39;; 製作: Columbia Pictur → Columbia Pictur</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">精灵旅社2</td>
+                        <td class="name">Hotel Transylvania 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;音乐&#39;, &#39;美国&#39;; 製作: Columbia Pictur → Columbia Pictur</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">蜜熊的音乐奇旅</td>
+                        <td class="name">Vivo</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (214→341字符); meta_tags: [&#39;OVA&#39;] → [&#39;科幻&#39;, &#39;同人&#39;, &#39;OVA&#39;]; 别名: Opatsu Oman | オ → AWAKE改 | Opatsu; 添加中文名: 觉醒 OVA</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">觉醒 OVA</td>
+                        <td class="name">VIDEO AWAKE</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (378→380字符); meta_tags: [&#39;科幻&#39;, &#39;短片&#39;, &#39;日本&#39;, &#39;原创&#39;] → [&#39;科幻&#39;, &#39;同人&#39;, &#39;短片&#39;, &#39;日本&#39;, &#39;原创&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">Daicon4 开幕动画</td>
+                        <td class="name">DAICON IV OPENING ANIMATION</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">音乐: 松冈直也、トニーズ・ショウ、島 → 松冈直也[松岡直也]、トニーズ</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">心情鸡尾酒</td>
+                        <td class="name">ハートカクテル</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">剪辑: 辺見俊夫(1,2)、船見康恵( → 辺見俊夫(1,2)、船見康恵(</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">魔法少女砂沙美</td>
+                        <td class="name">魔法少女プリティサミー</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;游戏改&#39;, &#39;美国&#39;, &#39;欧美&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;冒险&#39;, &#39;萌系&#39;, &#39;游戏改</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">愤怒的小鸟</td>
+                        <td class="name">The Angry Birds Movie</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 2003-01-01 → 2004-08-06; meta_tags: [&#39;剧场版&#39;] → [&#39;剧场版&#39;, &#39;漫画改&#39;, &#39;韩国&#39;]; 片长: 80分钟 → 74分钟</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">雷霆少年</td>
+                        <td class="name">망치</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日文名: 光の風のマーヤ → 光の風のアーマ; 别名: [新增] 光の風のマーヤ; 中文名: 光之风的玛雅 → 光之风的阿玛</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">光之风的阿玛</td>
+                        <td class="name">光の風のアーマ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 新房昭之(NC)、小俣真一(1 → 小俣真一(1-2,4-5,11</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">荒川爆笑团</td>
+                        <td class="name">荒川アンダー ザ ブリッジ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: [新增] 久保田誓、黒田新次郎、白川亮介; 导演: [新增] 永居慎平; 放送开始: 2027年 → 2027年1月; 话数: * → 13; ...还有1项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">一拳超人 第三季 第2部分</td>
+                        <td class="name">ワンパンマン 第3期 第2クール</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 新房昭之(NC)、板村智幸(1 → 板村智幸(1,3,8)、八瀬祐</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">伪物语</td>
+                        <td class="name">偽物語</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: [新增] Pan Dorobou</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">神秘面包小子</td>
+                        <td class="name">パンどろぼう</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: 中鶴勝祥 → 前田実、中鶴勝祥; 原作: 鳥山明 → 鳥山明（集英社「週刊少年ジャン</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">龙珠Z</td>
+                        <td class="name">ドラゴンボールZ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;冒险&#39;, &#39;美国&#39;; 音乐: [新增] Paul Westerberg</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">丛林大反攻</td>
+                        <td class="name">Open Season</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加日期: 1987-01-01; meta_tags: 新增 [&#39;短片&#39;, &#39;苏联&#39;]; 别名: The Lesson → 教訓 | The Lesson; 剪辑: [新增] Hrachya Beylery; 导演: R. Sahakyants → Robert Sahakyan; 摄影: [新增] Alice Kyurdyan; 脚本: R. Sahakyants → Robert Sahak...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">教训</td>
+                        <td class="name">Урок</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (420→657字符)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">天是红河岸</td>
+                        <td class="name">天は赤い河のほとり</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 新房昭之(NC)、武内宣之(1 → 武内宣之(1-5)、福田道生(</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">化物语</td>
+                        <td class="name">化物語</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (171→335字符)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">最强王者的第二人生 第二季</td>
+                        <td class="name">最強の王様、二度目の人生は何をする？ Season 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (375→669字符)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">萩萩公主</td>
+                        <td class="name">プリンセスチュチュ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">动画检查: 木村泰大、江野沢柚美、豊田桂祐 → 木村泰大、江野沢柚美、豊田桂祐; 原画: 小倉陳利、野田康行、川島尚、吉 → 小倉陳利、野田康行、川島尚、吉</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">宝石宠物 Sunshine</td>
+                        <td class="name">ジュエルペット サンシャイン</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主演出: [新增] 中野英明 [第1夜 - 第5夜; 人物设定: [新增] 後藤圭佑; 企画: [新增] 桑原勇蔵、小石川伸哉; 作画监督: [新增] 櫻井拓郎、小野田貴之、近藤優次; 分镜: [新增] 吉原達矢、中野英明、セトウケン; 制片人: [新增] 依田健、三澤幸三、内田朋宏、竹; 剪辑: [新增] 奥田浩史; 动画制作: [新增] タツノコプロ、スタジオ座円洞、; 动画制片人: [新增]...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">夜之小双侠</td>
+                        <td class="name">夜ノヤッターマン</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (417→418字符); meta_tags: [&#39;OVA&#39;] → [&#39;OVA&#39;, &#39;漫画改&#39;]; 添加中文名: 天才宝贝熊</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">天才宝贝熊</td>
+                        <td class="name">かってにシロクマ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">动画检查: 濱崎徹、鳥谷俊輔、寿夢龍、澤田 → 濱崎徹、鳥谷俊輔、寿夢龍、澤田</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">枪与假面舞会</td>
+                        <td class="name">ランス・アンド・マスクス</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;后宫&#39;, &#39;小说改&#39;, &#39;日本&#39;] → [&#39;后宫&#39;, &#39;TV&#39;, &#39;日本&#39;, &#39;小说改&#39;]; 官方网站: http://www.saen → https://www.sae</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">路人女主的养成方法</td>
+                        <td class="name">冴えない彼女の育てかた</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (310→310字符); meta_tags: [&#39;TV&#39;, &#39;日本&#39;, &#39;漫画改&#39;] → [&#39;百合&#39;, &#39;校园&#39;, &#39;TV&#39;, &#39;日本&#39;, &#39;漫画改&#39;; 链接: [新增] [X|https://x.co</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">雨夜之月</td>
+                        <td class="name">雨夜の月</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (97→259字符); 放送开始: * → 2027年</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">骨龙的宝贝</td>
+                        <td class="name">骨ドラゴンのマナ娘</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;OVA&#39;, &#39;漫画改&#39;] → [&#39;日本&#39;, &#39;OVA&#39;, &#39;漫画改&#39;]; 别名: 魔卡少女樱 知世的影像活跃日记 → 魔卡少女樱 知世的活跃日记 |; 中文名: 魔卡少女樱 知世的活跃日记 → 魔卡少女樱 知世的影像活跃日记</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">魔卡少女樱 知世的影像活跃日记</td>
+                        <td class="name">知世のカードキャプターさくら活躍ビデオ日記!</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (59→303字符); meta_tags: [&#39;百合&#39;, &#39;原创&#39;] → [&#39;短片&#39;]; 官方网站: [新增] https://www.mad</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">魔法少女小圆 新作概念视频</td>
+                        <td class="name">魔法少女まどか☆マギカ コンセプトムービー</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: God is shy | Di → 害羞的上帝 | 恐懼的形狀 |; 制片人: [新增] Félix de Givry、; 导演: 若瑟兰·夏尔 → Jocelyn Charles; 脚本: [新增] Jocelyn Charles; 音乐: [新增] P.r2b; ...还有2项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">上帝怯场</td>
+                        <td class="name">Dieu est timide</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 遗憾生物事典 | 残念生物事典 → 遗憾的进化 | 遗憾生物事典; 中文名: 遗憾的进化 → 残念生物事典</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">残念生物事典</td>
+                        <td class="name">ざんねんないきもの事典</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;科幻&#39;, &#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;冒险&#39;; 制片人: [新增] Phil Lord、Chris; 製作: Columbia Pictur → Columbia Pictur</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">智能大反攻</td>
+                        <td class="name">The Mitchells vs. The Machines</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;奇幻&#39;, &#39;原创&#39;, &#39;冒险&#39;; 宣传: [新增] 北京循环播放文化传媒有限公司、</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">许愿神龙</td>
+                        <td class="name">Wish Dragon</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 新房昭之(NC)、武内宣之(1 → 武内宣之(1)、龍輪直征(2-</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">玛利亚狂热</td>
+                        <td class="name">まりあ†ほりっく</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">平台: 1; 添加简介; meta_tags: [&#39;漫画改&#39;] → [&#39;TV&#39;, &#39;漫画改&#39;]; Copyright: [新增] ©︎ YC,rakhyun,S; 人物设定: [新增] 羽田浩二; 动画制作: [新增] J.C.STAFF; 官方网站: [新增] http://teenagem; 导演: [新增] 小野学; 放送开始: [新增] 2027年; 系列构成: [新增] 小野学; 脚本:...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">少年佣兵</td>
+                        <td class="name">入学傭兵</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">企画: 安田猛、石橋隆文、武智恒雄、阿 → 安田猛、石橋隆文、武智恒雄、阿; 动画制片人: 川﨑とも子；制作制片人：橋本和 → 川﨑とも子[川崎とも子]；制作</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">FORTUNE ARTERIAL -赤之约束-</td>
+                        <td class="name">FORTUNE ARTERIAL -赤い約束-</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: Kimi no Koto ga → Kimi no Koto ga</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">超超超超超喜欢你的100个女朋友 第二季</td>
+                        <td class="name">君のことが大大大大大好きな100人の彼女 第2期</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;欧美&#39;] → [&#39;科幻&#39;, &#39;TV&#39;, &#39;漫画改&#39;, &#39;冒险&#39;, &#39;美国&#39;; 日文名: Iron Man(1995) → Iron Man Season 2; 製作: Marvel Entertai → Marvel Entertai</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">钢铁侠 第二季</td>
+                        <td class="name">Iron Man Season 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;中国&#39;, &#39;WEB&#39;] → [&#39;WEB&#39;, &#39;中国&#39;]; Copyright: [新增] 优酷信息技术(北京)有限公司、; 企画: [新增] 总策划：张珺玮、张薇、宋鹏凯、; 分镜: [新增] 分镜导演：冯文杰、徐广浩、赵奔; 别名: [新增] 第一季 灵相觉醒; 制片人: [新增] 柯烽艺、李佳娣、赵楠、陈欣欣; 副导演: [新增] 助理导演：Anthony Ya; 原...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">天相</td>
+                        <td class="name">天相</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 何欣（分镜导演）、薛远圣、王文 → 何欣（分镜导演）、薛远圣、王文; 制片: （出品方）闫明欣、田雪姣、吴静 → 闫明欣、田雪姣、吴静静，陈琳、; 剪辑: [新增] 翟浩强（剪辑主管）、袁新然、董; 副导演: [新增] 总导演助理：梁霄、蔡东龙; 协力: 项目支持：朱贝宁、陈晓璐、黄思 → 版权支持：易小丽、潘琳琳、刘綦; 播放电视台: [新增] bilibli; 监制: 魔恩·杨璐（总监...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">黑门</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">作画监督: 塚田ひろし、小関雅、岡田豊広、 → 塚田ひろし、小関雅、岡田豊広、</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">sin 七大罪</td>
+                        <td class="name">sin 七つの大罪</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;OVA&#39;, &#39;漫画改&#39;, &#39;美国&#39;] → [&#39;科幻&#39;, &#39;奇幻&#39;, &#39;OVA&#39;, &#39;漫画改&#39;, &#39;战斗; 制片人: [已删除]; 片长: [新增] 72分钟; 製作: Marvel Entertai → Lionsgate Films</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">终极复仇者</td>
+                        <td class="name">Ultimate Avengers</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">动画检查: 田邊瑶子 → 田邊瑶子[たなべようこ]; 原画: 川島尚、山中いづみ、大沢美奈、 → 川島尚、山中いづみ、大沢美奈、</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">おねがいマイメロディ 友&amp;愛</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: [新增] 达达; 主题歌作词: [新增] 达达; 人物设定: [新增] 唐嘉艺（角色美术指导）; 企画: [新增] 总策划：崔超、施仁毅; 分镜: [新增] 兰建宇（分镜总监）、杨凯、谢志; 剪辑: [新增] 李恒（剪辑监督）、王伟健; 动画制作: 百漫 → 广州百漫文化传播有限公司（爆更; 导演: 高文彬 → 高文彬、徐羽; 录音: [新增] 张吉轩、冯丝雨; 录音工作室: [新增...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">狂王 第2季</td>
+                        <td class="name">狂王2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (259→260字符)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">翔ちゃん空を飛ぶ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;欧美&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;冒险&#39;, &#39;萌系&#39;, &#39;游戏改</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">愤怒的小鸟2</td>
+                        <td class="name">The Angry Birds Movie 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">第二原画: 栁澤薫、持田愛、安藤恒太、東雄 → 栁澤薫、持田愛、安藤恒太、東雄</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">宝石宠物 Kira☆Deco！</td>
+                        <td class="name">ジュエルペット きら☆デコッ！</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;日本&#39;, &#39;漫画改&#39;] → [&#39;科幻&#39;, &#39;TV&#39;, &#39;日本&#39;, &#39;原创&#39;]; 别名: 奥祖玛 → OZMA | OZUMA | ; 中文名: OZUMA → 奥祖玛</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">奥祖玛</td>
+                        <td class="name">オズマ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (586→586字符); 别名: 重生者的魔法一定要特別 第二季 → 重生者的魔法一定要特別 第二季</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">归还者的魔法要特别 第二季</td>
+                        <td class="name">帰還者の魔法は特別です 第2期</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;欧美&#39;] → [&#39;科幻&#39;, &#39;TV&#39;, &#39;漫画改&#39;, &#39;战斗&#39;, &#39;冒险&#39;; 日文名: Silver Surfer(1998) → Silver Surfer</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">银影侠</td>
+                        <td class="name">Silver Surfer</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">平台: 2; 日期: 2026-05-09 → 2026-07-09; 简介更新 (377→367字符); meta_tags: [&#39;日本&#39;, &#39;游戏改&#39;] → [&#39;日本&#39;, &#39;OVA&#39;, &#39;游戏改&#39;]; 别名: [新增] Unanswered//but</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">寂静不语的//蝴蝶</td>
+                        <td class="name">Unanswered//butterfly</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (396→887字符)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">重启咲良田</td>
+                        <td class="name">サクラダリセット</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">动画制片人: 山中一樹；助理动画制片人：上松 → 山中一樹</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">LONA</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: [新增] Tensei Shitara </div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">关于我转生变成史莱姆这档事 OAD</td>
+                        <td class="name">転生したらスライムだった件 OAD</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">制片人: 小林潤香、櫻井優香、金庭こず恵 → 小林潤香、櫻井優香、金庭こず恵</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">喜欢就是喜欢</td>
+                        <td class="name">好きなものは好きだからしょうがない!!</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: 新增 [&#39;短片&#39;, &#39;小说改&#39;]; 原作: [新增] Ray Bradbury</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">伊卡路·斯蒙特高尔菲·怀特</td>
+                        <td class="name">Icarus Montgolfier Wright</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: [新增] HoneyWorks / Aq; 主题歌作词: [新增] HoneyWorks、MARU; 主题歌演出: [新增] HoneyWorks feat; 主题歌编曲: [新增] HoneyWorks、MARU; 企画: [新增] 福島毅、高島祐一郎、菊池貞和、; 作画监督: [新增] 江上夏樹、村上直紀、糸島雅彦、; 分镜: [新增] 古田丈司; 别名: The World&#39;s...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">世界最强的魔女，就此开始</td>
+                        <td class="name">世界最強の魔女、始めました</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: [新增] 郑泠泠; 作画监督: [新增] 林佩妍; 分镜: [新增] 皮聪颖、郑泠泠; 剪辑: [新增] 林春柳; 原画: [新增] 动作原画：郑泠泠、林佩妍、吴凯; 宣传: [新增] 邓泽辉、朱芷仪、李莎、黄丹莹、; 摄影: [新增] 后期合成：吴凯敏、霍炤峰、郑泠; 演出: [新增] 执行导演：郑泠泠; 美术监督: [新增] 美术指导：吴兆显; 美术设计: [新增] 场景设定：吴兆...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">请吃红小豆吧！ 第二季</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (290→228字符); 链接: [新增] [wiki|https://z</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">超重神GRAVION</td>
+                        <td class="name">超重神グラヴィオン</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原画: 濱洲英喜、山下高明、長濵博史、 → 濱洲英喜(OP作画 シネ・カリ</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">爱丽丝SOS</td>
+                        <td class="name">アリスSOS</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原画: 水上ろんど、石井和彦、中尾友治 → 水上ろんど、石井和彦、中尾友治</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">欢乐课程 The Final</td>
+                        <td class="name">HAPPY★LESSON The Final</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">制片人: 森山敦、柏田圭一、川﨑とも子、 → 森山敦、柏田圭一、川﨑とも子[</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">蓝兰岛漂流记</td>
+                        <td class="name">ながされて藍蘭島</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;后宫&#39;, &#39;小说改&#39;, &#39;日本&#39;] → [&#39;后宫&#39;, &#39;TV&#39;, &#39;日本&#39;, &#39;小说改&#39;]; 制片人: 立崎孝史、小倉充俊、福田順、斎 → 立崎孝史、小倉充俊、福田順、斎</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">美少女死神 还我H之魂</td>
+                        <td class="name">だから僕は、Hができない。</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: [新增] 今井寿 / A.G.O、Ryo; 主题歌作词: [新增] 今井寿 / Ryoma Tak; 主题歌演出: [新增] BUCK∞TICK(BUCK-; 主题歌编曲: [新增] / A.G.O; 作画监督: [新增] 大塚真史、jeto、上田美紀、; 制片人: [新增] 竹枝義典（フジテレビ）、白田幸; 动画制片人: [新增] 本多史典; 动画检查: [新增] 西本春菜; 原画...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Dark Machine The Animation</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;原创&#39;, &#39;欧美&#39;, &#39;美国&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;奇幻&#39;, &#39;原创&#39;, &#39;美国&#39;; 製作: Columbia Pictur → Columbia Pictur</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">精灵旅社</td>
+                        <td class="name">Hotel Transylvania</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: [新增] 亡霊工房; CG 导演: [新增] 坂本剛一(亡霊工房); 主题歌作曲: [新增] MADLEMON、Xuon、p; 主题歌作词: [新增] MADLEMON、Xuon、あ; 主题歌演出: [新增] BUDDiiS / こたに; 主题歌编曲: [新增] pw.a / ミト(クラムボン; 企画: [新增] 小野仁、出蔵寛幸、淡野正、加藤; 分镜: [新增] 球野たかひろ[球野貴...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">用【循环利息】强制收回借出的魔力</td>
+                        <td class="name">貸した魔力は【リボ払い】で強制徴収</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">录音: [新增] 录音调整：神</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">NTR骑士</td>
+                        <td class="name">NTR騎士</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;欧美&#39;] → [&#39;科幻&#39;, &#39;TV&#39;, &#39;原创&#39;, &#39;战斗&#39;, &#39;冒险&#39;,</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">超级蜘蛛侠</td>
+                        <td class="name">Spider-Man Unlimited</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;欧美&#39;] → [&#39;美国&#39;, &#39;动态漫画&#39;]; 日文名: Wolverine vs. Sabretooth → Wolverine Versus Sabretooth; 别名: [新增] Wolverine vs. S</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">金刚狼大战剑齿虎</td>
+                        <td class="name">Wolverine Versus Sabretooth</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (394→472字符)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">来自远方</td>
+                        <td class="name">彼方から</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加日期: 2026-05-04; 添加简介; 日文名: 東方M-1ぐらんぷりEX7 博麗神社例大祭 → 東方M-1ぐらんぷりEX7 秘封堂単独ライブ！; 动画制作: [新增] 沌x、真埼; 原作: [新增] 上海アリス幻樂団; 官方网站: [新增] https://www.r-n; 中文名: 东方M-1漫才大奖赛EX7 博丽神社例大祭 → 东方M-1漫才大奖赛EX7 秘封堂单独live！</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">东方M-1漫才大奖赛EX7 秘封堂单独live！</td>
+                        <td class="name">東方M-1ぐらんぷりEX7 秘封堂単独ライブ！</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加日期: 2027-01-09; 放送开始: 2027年1月 → 2027年1月9日; 放送星期: [新增] 星期六</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">杀手寓言 第二季</td>
+                        <td class="name">ザ・ファブル 第2期</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 1981-01-01 → 1982-05-01; 片长: [新增] 75分钟</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">혹성 로보트 썬더A</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">平台: 2 → 3; meta_tags: [&#39;OVA&#39;] → [&#39;剧场版&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">つるにのって とも子の冒険</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: バトルスピリッツ バーニングソ → バトルスピリッツ バーニングソ</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">战斗之魂 烈火灵魂</td>
+                        <td class="name">バトルスピリッツ 烈火魂</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: [已删除]; 别名: Sengoku Youko:  → Sengoku Youko: ; 演出: [已删除]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">战国妖狐 千魔混沌篇</td>
+                        <td class="name">戦国妖狐 千魔混沌編</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: Inazuma Eleven  → INAZUMA ELEVEN:</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">剧场版 闪电十一人 新英雄的序章</td>
+                        <td class="name">劇場版 イナズマイレブン 新たなる英雄たちの序章</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (462→447字符); 官方网站: https://animati → https://animati</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">黑化吧！圣女大人 第二季</td>
+                        <td class="name">傷だらけ聖女より報復をこめて Season2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (806→1317字符); 别名: 蒼き伝承 ウェルシュ＆シェダー → 蒼き伝承 ウェルシュ＆シェダー; 脚本: Tot(Anthony Rou → Tot(Anthony Rou; 中文名: 苍蓝传承 → 苍蓝传承 威尔什&amp;榭达</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">苍蓝传承 威尔什&amp;榭达</td>
+                        <td class="name">Welsh &amp; Shedar</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 自新世界 | From the → Shinsekai yori </div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">来自新世界</td>
+                        <td class="name">新世界より</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;美国&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;奇幻&#39;, &#39;原创&#39;, &#39;美国&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">精灵旅社大闹鬼</td>
+                        <td class="name">The Haunting of Hotel Transylv...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: [新增] 余洁颖; 主题歌作词: [新增] 朱芷仪; 主题歌演出: [新增] 杨梓鸿; 人物设定: [新增] 郑泠泠; 分镜: [新增] 郑泠泠; 原画: [新增] 张展雄、黄云燕、吴兆显、卫婷、; 宣传: [新增] 邓泽辉、李莎、王依婷; 摄影: [新增] 后期：黄莉珊、霍炤峰、郑泠泠、; 演出: [新增] 吴凯敏（执行导演）; 美术监督: 李惠文 → 美术指导：李惠文、吴兆显; ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">请吃红小豆吧！外传 莫相忘</td>
+                        <td class="name">请吃红小豆吧！外传 莫相忘</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: Yowaki MAX Reij → Even Though I&#39;m</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">极致软弱千金小姐，不小心答应了精明未婚夫的赌局</td>
+                        <td class="name">弱気MAX令嬢なのに、辣腕婚約者様の賭けに乗ってしまった</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">剪辑: [新增] KobayaShi; 原画: [新增] 雪丸あすか、舘山卓生、中村恒裕; 录音工作室: [新增] ST-U2-SAM; 摄影: [新增] ONO TSUYOSHI、Ko; 背景美术: [新增] 南雲ミハル; ...还有2项变化; 添加中文名: 与毫无自觉的青梅竹马出于好奇试着做爱之后</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">与毫无自觉的青梅竹马出于好奇试着做爱之后</td>
+                        <td class="name">無自覚な幼馴染と興味本位でヤってみたら THE ANIMAT...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;OVA&#39;, &#39;漫画改&#39;, &#39;美国&#39;] → [&#39;科幻&#39;, &#39;OVA&#39;, &#39;漫画改&#39;, &#39;战斗&#39;, &#39;冒险; 制片人: Bob Richardson、 → Bob Richardson、; 製作: Marvel Entertai → Marvel Entertai</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">无敌钢铁侠</td>
+                        <td class="name">The Invincible Iron Man</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;奇幻&#39;, &#39;欧美&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;奇幻&#39;, &#39;小说改&#39;, &#39;欧美; 别名: [已删除]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">了不起的莫里斯</td>
+                        <td class="name">The Amazing Maurice</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;欧美&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;奇幻&#39;, &#39;原创&#39;, &#39;美国&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">精灵旅社4：变身大冒险</td>
+                        <td class="name">Hotel Transylvania 4: Transfor...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: 栗田聡美、栗田聡美 → 栗田聡美; 其他: 10月3日22:00地上波1周 → 10月3日22:00比地上波先</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">转生后的大圣女，极力隐瞒圣女的身分</td>
+                        <td class="name">転生した大聖女は、聖女であることをひた隠す</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (363→205字符); 别名: 新竹取物语 千年女王 | 千年 → 新竹取物语 1000年女王 |; 中文名: 新竹取物语 1000年女王 → 新竹取物语 千年女王</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">新竹取物语 千年女王</td>
+                        <td class="name">新竹取物語 1000年女王</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 2003-01-01 → 2003-05-01; meta_tags: [&#39;剧场版&#39;, &#39;韩国&#39;] → [&#39;剧场版&#39;, &#39;小说改&#39;, &#39;韩国&#39;]; 原作: [新增] 정채봉 《오세암》; 导演: SEONGBaek-yeop → 성백엽</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">五岁庵</td>
+                        <td class="name">오세암</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原画: 一川孝久、和田佳純、本田辰雄、 → 一川孝久、和田佳純、本田辰雄、</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">宝石宠物 剧场版 甜蜜舞蹈公主</td>
+                        <td class="name">映画ジュエルペット スウィーツダンスプリンセス</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">作画监督: 妖怪医生、甘卓炯、周子琪、李翰 → 妖怪医生、甘卓炯、周子琪、李翰; 分镜: 西村亮(劳子亮)、立白、許尹嘉 → 西村亮(劳子亮)、立白、許尹嘉; 动画检查: 鸡丁、翟蕾、TaTa、莫继祖、 → 鸡丁、翟蕾、TaTa、莫继祖、; 原画: 方叶伟、郑俊基、杜美霖、丛泰然 → 方叶伟、郑俊基、杜美霖、丛泰然; 摄影: 尹自然、曾颖茜、熊渺渺、王帅群 → 尹自然、曾颖茜、熊渺渺、王帅群; 第...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">大王饶命 第三季</td>
+                        <td class="name">大王饶命 第三季</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: [新增] 战魂王 赫盟之加雷特</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">战斗之魂 赫盟的加雷特</td>
+                        <td class="name">バトルスピリッツ 赫盟のガレット</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;欧美&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;漫画改&#39;, &#39;冒险&#39;, &#39;萌系; 其他: [已删除]; 执行制片人: 古天樂 → Justin Baldoni、; 製作: Columbia Pictur → Columbia Pictur</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">加菲猫家族</td>
+                        <td class="name">The Garfield Movie</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;欧美&#39;] → [&#39;科幻&#39;, &#39;TV&#39;, &#39;漫画改&#39;, &#39;冒险&#39;, &#39;美国&#39;; 日文名: The Incredible Hulk(1996) → The Incredible Hulk</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">无敌浩克 第一季</td>
+                        <td class="name">The Incredible Hulk</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: 视效：牟鸿毅；资产：牟鸿毅、杨 → 场景渲染：牟鸿毅、杨俊、厉华灵; 主题歌作曲: 吴烦，王子(王子zione) → 吴烦 / 王子(王子zione; 主题歌作词: 李姝，王子(王子zione) → 李姝 / 王子(王子zione; 主题歌演出: 詹雯婷Faye，毛不易 → 詹雯婷Faye / 毛不易 /; 主题歌编曲: 杨云翔，弋洋 → 杨云翔 / 弋洋 / 高铭 /; 作画监修: ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">镇魂街 风花雪月篇</td>
+                        <td class="name">镇魂街 第三季</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;OVA&#39;, &#39;漫画改&#39;, &#39;美国&#39;] → [&#39;奇幻&#39;, &#39;OVA&#39;, &#39;漫画改&#39;, &#39;战斗&#39;, &#39;冒险; 制片人: Gary Hartle、Sta → Gary Hartle、Sta; 製作: Marvel Animatio → MLG Productions</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">雷神托尔：仙宫传说</td>
+                        <td class="name">Thor: Tales of Asgard</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: [新增] 関乃梨佳、小寺鋼志、菊田遼、鍋; CG 导演: [新增] 高野慎也; 主题歌作曲: [新增] iri、ESME MORI /; 主题歌作词: [新增] iri / TOOBOE; 主题歌演出: [新增] iri / TOOBOE; 主题歌编曲: [新增] ESME MORI / TOO; 作画监督: [新增] 森幸子、小澤円、河本零王、小笠; 分镜: [新增] 亀井隆広; 制...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">萤火虫的出嫁</td>
+                        <td class="name">ホタルの嫁入り</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">放送开始: 2027年 → 2028年</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">对马岛之魂 冥人奇谭</td>
+                        <td class="name">Ghost of Tsushima 冥人奇譚</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 喜欢的冲绳妹说方言 | Oki → 在冲绳喜欢上的女孩子方言讲太多</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">在冲绳喜欢上的女孩方言讲得太过令人困扰</td>
+                        <td class="name">沖縄で好きになった子が方言すぎてツラすぎる</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加简介; 导演: [新增] 石倉賢一</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">暴食狂战士 第二季</td>
+                        <td class="name">暴食のベルセルク 第2期</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: 鵜ノ口穣二 → 山本倫、冨板紀宏、加瀬達規、髙; CG 导演: [已删除]; 作画监督: [新增] 池田和美、岡村公平; 分镜: [新增] 河浪栄作; 制片人: [新增] 八田真一郎、中村伸一、鈴木めぐ; 剪辑: [新增] 重村建吾; 动画检查: [新增] 松村元気; 原画: [新增] 岡村公平、池田和美、牟田亮平、; 摄影: [新增] 田中淑子、植田弘貴、船本孝平、; 演出: [新增...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">剧场版 Free!-Road to the World-梦</td>
+                        <td class="name">劇場版 Free!-Road to the World-夢</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">CG 导演: [新增] 亀山勇一; 主题歌作曲: [新增] Yunomi、田中公平; 主题歌作词: [新增] Yunomi、砂守岳央; 主题歌编曲: [新增] 田中公平; 人物设定: [新增] 山本周平; 作画监督: [新增] 渡辺義弘[渡邊義弘]、ビート; 分镜: [新增] てあせ、大西健太; 制片人: [新增] 酒井賢一郎; 剪辑: [新增] 鬼灯わらべ、グラフィニカ（丹彩; 动画制作: [新...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">hololive/宝鐘マリン ミュージック ビデオ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: バトルスピリッツ 新作 → バトルスピリッツ 新作 | 战</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">战斗之魂 Saga Brave</td>
+                        <td class="name">バトルスピリッツ サーガブレイヴ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;科幻&#39;, &#39;TV&#39;, &#39;日本&#39;, &#39;穿越&#39;, &#39;小说改&#39; → [&#39;科幻&#39;, &#39;后宫&#39;, &#39;TV&#39;, &#39;日本&#39;, &#39;穿越&#39;,; 话数: * → 13</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">一觉醒来就有了最强装备跟太空船 决定以自家独栋建筑为目标当佣...</td>
+                        <td class="name">目覚めたら最強装備と宇宙船持ちだったので 、一戸建て目指して...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">美术监督: ゆきゆきえ、行信三、塩崎広光、 → ゆきゆきえ、行信三/カルロス・</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">明日的娜嘉</td>
+                        <td class="name">明日のナージャ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;欧美&#39;, &#39;美国&#39;] → [&#39;科幻&#39;, &#39;喜剧&#39;, &#39;剧场版&#39;, &#39;漫画改&#39;, &#39;冒险</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">天降美食2</td>
+                        <td class="name">Cloudy with a Chance of Meatba...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">制片人: 千葉誠、鈴木智子、平光良介、小 → 千葉誠、鈴木智子、平光良介、小</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">虫之歌</td>
+                        <td class="name">ムシウタ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原画: 碇谷敦、池上太郎、中村和久、中 → 碇谷敦、池上太郎[池上たろう]; 第二原画: 山崎克之、玉井志保、竹内一将、 → 山崎克之、玉井志保、竹内一将、</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">打工吧！魔王大人</td>
+                        <td class="name">はたらく魔王さま!</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: [新增] 岡崎律子; 主题歌作词: [新增] 岡崎律子; 主题歌演出: [新增] 岡崎律子; 主题歌编曲: [新增] 村山達哉; 人物设定: [新增] 林明美; 作画监督: [新增] 林明美(1,8,13,18,2; 分镜: [新增] 大地丙太郎(1,4,20,24; 副导演: [新增] 助监督：宮崎なぎさ; 动画制作: [新增] スタジオディーン、東京キッズ(; 动画检查: 澤村享...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">水果篮子</td>
+                        <td class="name">フルーツバスケット</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 电影 五等分的花嫁 | Eig → 电影 五等分的花嫁 | Go-</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">电影 五等分的新娘</td>
+                        <td class="name">映画 五等分の花嫁</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;玄幻&#39;, &#39;小说改&#39;, &#39;中国&#39;, &#39;WEB&#39;] → [&#39;WEB&#39;, &#39;中国&#39;, &#39;小说改&#39;, &#39;玄幻&#39;]; 主题歌作曲: [新增] 片头曲：廖正星@听见时代; 主题歌作词: [新增] 片头曲：西子@听见时代、仇军; 主题歌演出: [新增] 片头曲：姚琛; 主题歌编曲: [新增] 片头曲：廖正星@听见时代; 企画: [新增] 总策划：张珺玮、张薇、宋鹏凯、; 分镜: [新...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">山海经密码</td>
+                        <td class="name">山海经密码</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加日期: 2027-01-13; 放送开始: 2027年1月 → 2027年1月13日; 放送星期: [新增] 星期三</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">你的友好邻居蜘蛛侠 第二季</td>
+                        <td class="name">Your Friendly Neighborhood Spi...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原画: 川岸波平、明智英司、帆立、梶原 → 川岸波平、明智英司、帆立、梶原</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">ダーク・シェル 檻の中の艶</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: [新增] Jaco Caraco、Bil; 制片人: [新增] Fernando de Fue; 原作: [新增] Adolfo Martinez; 执行制片人: [新增] Fernando de Fue; 播放结束: [新增] 2013年12月23日; 系列构成: [新增] Bill Schultz、Ri; 製作: [新增] Ánima Estudios、; 话数: 52 → 26...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Teenage Fairytale Dropouts</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: Zannen na Ikimo → 遗憾生物事典 第三季 | Za; 中文名: 遗憾生物事典 第三季 → 残念生物事典 第三季</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">残念生物事典 第三季</td>
+                        <td class="name">ざんねんないきもの事典 第3期</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">作画监督: 川村幸祐、鈴木幸江、松岡秀明、 → 川村幸祐、鈴木幸江、松岡秀明、; 分镜: 宇田鋼之介 → 宇田鋼之介(25-26)、畑博; 演出: 篠原ぱらこ → 篠原ぱらこ(25)、宇田鋼之介; 脚本: うえのきみこ → うえのきみこ(25-26)、か; ...还有1项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">乱马1/2 第三季</td>
+                        <td class="name">らんま1/2 第3期</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;欧美&#39;] → [&#39;剧场版&#39;, &#39;惊悚&#39;, &#39;冒险&#39;, &#39;美国&#39;, &#39;欧美&#39;; 动画制作: Sony Pictures I → Sony Pictures I; 执行制片人: Robert Zemeckis → Robert Zemeckis</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">怪兽屋</td>
+                        <td class="name">Monster House</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 1965-12-04 → 1969-12-04; 别名: 小英雄擂台斗智 (港) → 小英雄擂台斗智 (港) | 史; 制片人: [新增] Bill Melendez、 ; 剪辑: [新增] Robert Gillis、C; 导演: [新增] Bill Melendez; 脚本: [新增] Charles M. Schu; 音乐: [新增] Vince Guaraldi; ...还有3项变...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">一个叫查理布朗的男孩</td>
+                        <td class="name">A Boy Named Charlie Brown</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: [新增] 场景渲染：牟鸿毅、杨俊; 主题歌作曲: 文一丁＠三度和弦，飞鸟 → 文一丁＠三度和弦 / 飞鸟 /; 主题歌作词: 魔恩·杨璐、远风＠三度和弦，李 → 魔恩·杨璐、远风＠三度和弦 /; 主题歌演出: 文一丁，汪晨蕊 → 文一丁 / 汪晨蕊 / 南征北; 主题歌编曲: 文一丁＠三度和弦，李嘉宁Gar → 文一丁＠三度和弦 / 李嘉宁G; 人物设定: [新增] 徐源勤、黄凤、刘思...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">镇魂街 第四季</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (413→421字符); 动画制片人: 青木泰寛；助理动画制片人：藤澤 → 青木泰寛; 摄影监督: [新增] 大出高士（project No; 美术监督: マカリア（合六弘、川嶋みゆき、 → 合六弘（株式会社マカリア）、マ; 美术设计: BARNSTORM DESIG → バーンストーム・デザインラボ(; 色彩设计: [新增] 勝田綾太、山本真希; 製作: 凶乱令嬢ニア・リストン製作委員...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">乱世千金倪亚‧利斯顿转生为娇弱千金的弑神武人华丽无双录</td>
+                        <td class="name">凶乱令嬢ニア・リストン 病弱令嬢に転生した神殺しの武人の華麗...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 新房昭之(NC)、大谷肇(23 → 大谷肇(23,34,44)、川</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">3月的狮子 第二季</td>
+                        <td class="name">3月のライオン 第2シリーズ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 新房昭之(NC)、宮本幸裕(1 → 宮本幸裕(1)、三輪和宏(1)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">Fate/EXTRA Last Encore</td>
+                        <td class="name">Fate/EXTRA Last Encore</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: JoJo&#39;s Bizarre  → JoJo&#39;s Bizarre </div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">JOJO的奇妙冒险 石之海 第2部分</td>
+                        <td class="name">ジョジョの奇妙な冒険 ストーンオーシャン 第2クール</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">补间动画: khara（岩堀起久、松村佳子 → khara（岩堀起久、松村佳子</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">新・福音战士剧场版：终</td>
+                        <td class="name">シン・エヴァンゲリオン劇場版:│▌</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加中文名: Efficus ～献给你的思念～</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">Efficus ～献给你的思念～</td>
+                        <td class="name">エフィカス ～この想いを君に</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: [新增] ENGI；CG协力：東映アニメ; CG 导演: [新增] 佃将太、後藤浩幸; 主题歌作曲: [新增] 40mP; 主题歌作词: [新增] 40mP; 主题歌演出: [新增] 心梅 / カグラナナ; 主题歌编曲: [新增] 40mP; 企画: [新增] 田中翔; 作画监督: [新增] 木村衣里、鯉川慎平、森山剛史、; 分镜: [新增] 栗原学; 别名: [新增] Tantei ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">侦探已经死了。 第二季</td>
+                        <td class="name">探偵はもう、死んでいる。 Season 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: [新增] Odekake Kozame:</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">电影 小鲨鱼去郊游</td>
+                        <td class="name">映画 おでかけ子ザメ とかいのおともだち</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">平台: 3; 添加日期: 2027-03-26; meta_tags: [&#39;日本&#39;, &#39;小说改&#39;] → [&#39;剧场版&#39;, &#39;日本&#39;, &#39;小说改&#39;]; 原作: [新增] 橘公司（株式会社KADOKAW</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">约会大作战F Last Date</td>
+                        <td class="name">デート・ア・ライブF Last Date</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: Battle Spirits: → Battle Spirits:</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">战斗之魂 双重驱动</td>
+                        <td class="name">バトルスピリッツ ダブルドライブ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">话数: [已删除]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">金刚葫芦妹</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (127→111字符); meta_tags: [&#39;剧场版&#39;] → [&#39;科幻&#39;, &#39;同人&#39;, &#39;剧场版&#39;]; 别名: URACON III OPEN → URACON III OPEN; 片长: 10分 → 10分钟; 添加中文名: URACON3 开幕动画</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">URACON3 开幕动画</td>
+                        <td class="name">URACON Ⅲ OPENING ANIMATION</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加日期: 2026-11-12</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Sonic the Hedgehog: Memories A...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 新房昭之(NC)、板村智幸(1 → 板村智幸(1-2,9)、大石美</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">终物语</td>
+                        <td class="name">終物語</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: [新增] 赵芃（角色设计组长）、张倩、郭; 其他: [已删除]; 监修: [新增] 顾问：闵寻；制作顾问：高远、胡; 美术监督: [新增] 赵山山（艺术总监）; 美术设计: [新增] 夏正阳（主美）; 背景美术: [新增] 场景美术：谭舒萍、邓洋、罗思洁; 製作: 出品人：王世勇、陶石泉 → 两点十分动漫；出品人：王世勇、; ...还有4项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">我是江小白</td>
+                        <td class="name">我是江小白</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加简介; 主题歌作曲: [新增] 岡千秋; 主题歌作词: [新增] たかたかし; 主题歌演出: [新增] 松平健、日野美歌; 主题歌编曲: [新增] 矢野立美; 人物设定: [新增] 小泉昇; 企画: [新增] 赤津一彦(1-12)、松久智治; 作画监督: [新增] 小泉昇、鰐淵和彦、中島深、吉岡; 分镜: [新增] 貝澤幸男、勝間田具治、石黒育、; 制片人: [新增] 辻智博(1-12)、水谷...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">相扑力士松太郎</td>
+                        <td class="name">暴れん坊力士!!松太郎</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加日期: 2026-10-05; 简介更新 (263→760字符); 在线播放平台: [新增] YouTube; 放送开始: * → 2026年10月5日</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">Electro Andes</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 2021-01-01 → 2023-05-18; meta_tags: [&#39;剧场版&#39;] → [&#39;剧场版&#39;, &#39;机战&#39;, &#39;原创&#39;, &#39;韩国&#39;]; 日文名: 바람의 아이 → 거신: 바람의 아이 ; 片长: 75 → 93分钟</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">巨神：风之子</td>
+                        <td class="name">거신: 바람의 아이 </td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: アラフォー男の異世界通販生活  → アラフォー男の異世界通販生活 </div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">中年男的异世界网购生活</td>
+                        <td class="name">アラフォー男の異世界通販</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (135→132字符); 日文名: ―平和の使者― 青い目の人形物語 → 青い目の人形物語; 别名: [新增] ―平和の使者― 青い目の人形物; 片长: 30 → 35分钟; 添加中文名: 蓝眼娃娃物语</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">蓝眼娃娃物语</td>
+                        <td class="name">青い目の人形物語</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">作画监督: 高田洋一、野口寛明、宍戸久美子 → 高田洋一、野口寛明、宍戸久美子; 分镜: 酒向大輔 → 酒向大輔、矢野雄一郎; 演出: 酒向大輔 → 酒向大輔、土屋康郎</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">青之箱 第二季</td>
+                        <td class="name">アオのハコ Season 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;欧美&#39;] → [&#39;科幻&#39;, &#39;TV&#39;, &#39;奇幻&#39;, &#39;漫画改&#39;, &#39;战斗&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">复仇者联盟:团结一致</td>
+                        <td class="name">The Avengers: United They Stan...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 魔法少女育成计划 第二季 → Mahou Shoujo Ik</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">魔法少女育成计划 restart</td>
+                        <td class="name">魔法少女育成計画 restart</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;欧美&#39;] → [&#39;科幻&#39;, &#39;TV&#39;, &#39;漫画改&#39;, &#39;战斗&#39;, &#39;冒险&#39;; 企画: [新增] Craig Kyle、Greg; 制片人: [新增] Jason Netter; 动画制作: [新增] Toonz Entertain; 原案: [新增] Greg Johnson、Cr; 导演: [新增] Nicholas Filipp; 执行制片人: [新增] ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">金刚狼与X战警</td>
+                        <td class="name">Wolverine and the X-Men</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (113→255字符); 制片人: 地球環境平和財団 → 日本コロムビア; 原作: [新增] 坪田愛華; 添加中文名: 地球的秘密</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">地球的秘密</td>
+                        <td class="name">地球の秘密</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加简介; meta_tags: [&#39;OVA&#39;] → [&#39;同人&#39;, &#39;OVA&#39;, &#39;短片集&#39;]; 片长: 2 min → 2分钟; 话数: 17 → 15</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">驾笼真太郎动画作品集</td>
+                        <td class="name">駕籠真太郎アニメ作品集</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: STEEL BALL RUN  → JoJo&#39;s Bizarre </div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">飙马野郎 JOJO的奇妙冒险 第二&amp;第三赛段</td>
+                        <td class="name">スティール・ボール・ラン ジョジョの奇妙な冒険 2nd &amp; ...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: Sekai Meisaku G → 世界名作剧场·完结版 鲁滨逊一; 中文名: 世界名作剧场·完结版 鲁滨逊一家漂流记 → 世界名作剧场·完结版 家族鲁宾逊漂流记</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">世界名作剧场·完结版 家族鲁宾逊漂流记</td>
+                        <td class="name">世界名作劇場・完結版 家族ロビンソン漂流記 ふしぎな島のフロ...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加日期: 1996-01-20; meta_tags: [&#39;剧场版&#39;] → [&#39;科幻&#39;, &#39;剧场版&#39;, &#39;漫画改&#39;, &#39;韩国&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">아마게돈</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: 宰喆，朱瑞文(Rayven) → 宰喆，朱瑞文(Rayven)；; 主题歌作词: 赵凯欣，冉然 → 赵凯欣，冉然；安月名莉子（日本; 主题歌演出: 王珮瑜，纳豆nado → 王珮瑜，纳豆nado；安月名莉; 主题歌编曲: 宰喆 → 宰喆；eba（日本語版片头曲）; 制片人: 黄丽瑛、王梦桥 → 黄丽瑛、王梦桥；河本紗知（日本; 製作: 爱奇艺、快看漫画；出品人：龚宇 → 爱奇艺、快看...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">紫禁·御喵房</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: [新增] Cap Kakumei Bot</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">帽子革命瓶子人 DX</td>
+                        <td class="name">キャップ革命 ボトルマンDX</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (252→261字符); Copyright: [新增] ©松田舞／双葉社・ハイパー帰宅; 官方网站: [新增] https://hokabiy; 链接: [新增] [X|https://x.co</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">放学后归宅日常</td>
+                        <td class="name">放課後帰宅びより</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;原创&#39;, &#39;欧美&#39;, &#39;英国&#39;] → [&#39;剧场版&#39;, &#39;原创&#39;, &#39;英国&#39;, &#39;欧美&#39;]; 导演: Mark Burton / R → Mark Burton、Ric; 类型: [已删除]; 编剧: [已删除]; 脚本: [新增] Mark Burton、Ric; 语言: [已删除]; 链接: [新增] [IMDb|https://w; ...还有3项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">小羊肖恩</td>
+                        <td class="name">Shaun the Sheep Movie</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">补间动画: 王一奥、沈倩倩、于海洋、王思琪 → 王一奥、沈倩倩、于海洋、王思琪</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">大王饶命</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: [新增] You and Idol Pr</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">剧场版 Idol光之美少女你与我♪ 久等了！为你献上闪耀舞台...</td>
+                        <td class="name">映画キミとアイドルプリキュア♪ お待たせ！キミに届けるキラッ...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">话数: * → 12</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">超巡！超条前辈</td>
+                        <td class="name">超巡！超条先輩</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: [新增] 中原清隆; 企画: [新增] 高橋一平、酒匂暢彦、大月俊倫; 作画监督: [新增] 中原清隆、飯飼一幸、昆富美子、; 分镜: [新增] 岩崎良明(1-2)、大和直道(; 制片人: [新增] 伊藤明博、遊佐和彦、小川智弘、; 剪辑: [新增] 瀬山武司（瀬山編集室）; 动画制作: [新增] J.C.STAFF、スタジオマ; 协力: [新增] お手伝い：Big大澤; 原作: もも...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">老师的时间</td>
+                        <td class="name">せんせいのお時間</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;OVA&#39;, &#39;漫画改&#39;, &#39;美国&#39;] → [&#39;奇幻&#39;, &#39;OVA&#39;, &#39;漫画改&#39;, &#39;战斗&#39;, &#39;冒险; 制片人: Marvel Studios、 → Bob Richardson、; 片长: 76min → 76分钟; 製作: Marvel Entertai → Marvel Entertai</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">奇异博士</td>
+                        <td class="name">Doctor Strange</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: [新增] クリープ（宮崎渉、松下涼、池田; 主题歌作曲: [新增] 俊龍 / 渡辺翔; 主题歌作词: [新增] 藤林聖子 / 渡辺翔; 主题歌演出: [新增] Sizuk（AYAME）/ 内; 主题歌编曲: [新增] 岩橋星実 / 白戸佑輔; 人物设定: [新增] 川元まりこ; 企画: [新增] 赤津一彦、高島祐一郎、末平アサ; 作画监督: [新增] 澤田博範、加藤紗誉、真辺久輝、; ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">冰剑的魔术师将要统一世界 第二季</td>
+                        <td class="name">冰剣の魔術師が世界を統べるⅡ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (213→373字符); 3DCG: [新增] ウェルツアニメーションスタジオ; 主题歌作曲: [新增] sabio、Akki / jo; 主题歌作词: [新增] sabio、Akki / jo; 主题歌演出: [新增] 310 / Suupeas; 主题歌编曲: [新增] sabio、Akki / jo; 企画: [新增] 許樹人、神部宗之、有賀史英、前; 作画监督: [新增] 志水よ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">和没有信徒的女神大人一起攻略异世界</td>
+                        <td class="name">信者ゼロの女神サマと始める異世界攻略</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: Battle Spirits  → Battle Spirits </div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">战斗之魂[Re] 绝界之空</td>
+                        <td class="name">Battle Spirits [Re] 絶界の空</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加简介</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">小羊肖恩3：怪兽来袭</td>
+                        <td class="name">Shaun the Sheep: The Beast of ...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (124→125字符); meta_tags: [&#39;OVA&#39;] → [&#39;同人&#39;, &#39;OVA&#39;, &#39;短片集&#39;]; 别名: AZICON Opening  → 开幕动画合集 | オープニング; 添加中文名: 科幻大会开场动画合集</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">科幻大会开场动画合集</td>
+                        <td class="name">OPENING ANIME COLLECTION</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">Copyright: ©2026 ぶんころり,カント → ©2026 ぶんころり,カント; 主题歌作曲: [新增] Q-MHz / Medansy; 主题歌作词: [新增] LIN、YUKI / Meda; 主题歌演出: [新增] MADKID / のんふぃく！; 主题歌编曲: [新增] Q-MHz / Medansy; 企画: [新增] 田中翔; 作画监督: [新增] 堀光明、和田祐二、木全新;...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">佐佐木与文鸟小哔 第二季</td>
+                        <td class="name">佐々木とピーちゃん 第2期</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">CG 导演: [新增] 森田信廣; 主题歌作曲: [新增] メガテラ・ゼロ / VK Bl; 主题歌作词: [新增] メガテラ・ゼロ / VK Bl; 主题歌演出: [新增] メガテラ・ゼロ / ビッケブラ; 主题歌编曲: [新增] つっくん / VK Blank; 人物原案: [新增] 人物设定：鳥山明; 人物设定: 鳥山明；动画人物设定：山室直儀 → 动画人物设定：山室直儀; 企画: [新增]...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">龙珠超 比鲁斯</td>
+                        <td class="name">ドラゴンボール超 ビルス</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;欧美&#39;] → [&#39;TV&#39;, &#39;美国&#39;]; 制片人: [新增] Jason Netter、Bi; 剪辑: [新增] David W. Foster; 动画制作: [新增] Netter Digital ; 执行制片人: [新增] Ted Koplar、Kevi; 製作: [新增] Netter Digital ; 音乐: [新增] Stephen C. Mars...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">星际争霸战</td>
+                        <td class="name">Voltron: The Third Dimension</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 1982-01-01 → 1983-02-24; 片长: [新增] 72分钟</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">초합금 로보트 쏠라 원투쓰리</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;日本&#39;, &#39;奇幻&#39;, &#39;漫画改&#39;, &#39;战斗&#39; → [&#39;TV&#39;, &#39;日本&#39;, &#39;奇幻&#39;, &#39;漫画改&#39;, &#39;战斗&#39;; 主题歌作曲: [新增] 十明 / Gary Jeon; 主题歌作词: [新增] 十明 / 杉山勝彦; 主题歌演出: [新增] 十明 / Kawaguchi ; 主题歌编曲: [新增] 江口亮 / Gary Jeon; 企画: 企画プロデュース：UN...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">魔法骑士雷阿斯 (2026)</td>
+                        <td class="name">魔法騎士レイアース</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">话数: * → 6</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">南方公园 第29季</td>
+                        <td class="name">South Park season 29</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;战斗&#39;, &#39;玄幻&#39;, &#39;小说改&#39;, &#39;中国&#39;, &#39;WEB → [&#39;WEB&#39;, &#39;中国&#39;, &#39;小说改&#39;, &#39;战斗&#39;, &#39;玄幻; Copyright: [新增] 上海宽娱数码科技有限公司; 主题歌作曲: [新增] 片头曲：付尧 / 片尾曲：白杨; 主题歌作词: [新增] 片头曲：于晓明 / 片尾曲：白; 主题歌演出: [新增] 片头曲：戴荃 / 片尾曲：王伟; 主题歌编曲: ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">永生 第四季</td>
+                        <td class="name">永生之海噬仙灵</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (422→422字符); meta_tags: [&#39;科幻&#39;, &#39;剧场版&#39;, &#39;日本&#39;, &#39;原创&#39;] → [&#39;科幻&#39;, &#39;剧场版&#39;, &#39;日本&#39;, &#39;原创&#39;, &#39;短片集; 片长: [新增] 64分钟</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">generAIdoscope：ジェネレイドスコープ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">制片人: [新增] 田口亜有理; 摄影监督: [新增] 伏原あかね</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">ghost</td>
+                        <td class="name">ghost／夜の果て</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加简介; 在线播放平台: [新增] Netflix; 播放电视台: [新增] TBS; 放送开始: * → 2027年</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">偕云前往北北西</td>
+                        <td class="name">北北西に曇と往け</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">话数: 1 → 2</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">桜春女学院の男優</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;冒险&#39;, &#39;萌系&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">蓝精灵：失落的村庄</td>
+                        <td class="name">Smurfs: The Lost Village</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">企画: [新增] 吉羽治、古川公平; 作画监督: [新增] 近岡直; 分镜: [新增] 上坪亮樹; 制片人: [新增] 山田裕一、小林史武; 剪辑: [新增] 関一彦; 动画制作: [新增] XEBEC; 动画制片人: [新增] 能戸隆; 动画检查: [新增] 酒井秀基; 原作: TAGRO → TAGRO（モーニング・ツー連; 原画: [新增] 浅賀和行、大浪太、渡邊政訓、織; 录音: [新增]...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">变态生理研究班 OAD</td>
+                        <td class="name">変ゼミ OAD</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">企画: [新增] 吉岡富夫、森山敦; 作画监督: [新增] 織田誠、Eum Ik Hyun; 分镜: [新增] 二瓶勇一、ふくもとかん、吉田英; 制片人: [新增] 中西豪、山田裕一; 动画制作: [新增] XEBEC、ARMS; 动画制片人: [新增] 能戸隆; 动画检查: [新增] 酒井秀基、後藤章子、藤井苑美、; 协力: [新增] 小林史武（モーニング編集部）、; 原作: TAGRO（「モー...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">变态生理研究班</td>
+                        <td class="name">変ゼミ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 1985-01-01 → 1985-10-19; 片长: [新增] 68分钟</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">로보트 군단과 메카3</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: 二维动画开发部-角色总监：裴斐 → 二维动画开发部-角色总监：裴斐; 剪辑: 故事开发部-剪辑组长：程昕宇‖ → 故事开发部-剪辑组长：程昕宇‖; 美术监督: 艺术总监：王昕||二维动画开发 → 艺术总监：王昕‖二维动画开发部; 美术设计: 二维动画开发部-美术设计：张春 → 二维动画开发部-美术设计：张春; ...还有1项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">姜子牙</td>
+                        <td class="name">姜子牙</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 1979-01-01 → 1979-07-15</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">태극소년 흰 독수리</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 既然能用鼠标操控现实，那我要疯 → Click Me All Ov</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">マウスカーソルで 現実を操作できるようになったので、女の子を...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: [新增] 高铭、南征北战NZBZ; 主题歌作词: [新增] 卢恒宇、南征北战NZBZ; 主题歌演出: [新增] 南征北战NZBZ; 主题歌编曲: [新增] 南征北战NZBZ; 作画监督: 周雪 → 周雪，边曦、管嘉琪; 动画制作: [新增] 好传动画、仁永影视动画制作传播; 动画检查: [新增] 童星雨; 原画: [新增] 周雪、贺沁、崔亚杰、韩紫溪、朱; 录音工作室: [新增] 北...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">镇魂街</td>
+                        <td class="name">镇魂街</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;冒险&#39;, &#39;美国&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">丛林大反攻3</td>
+                        <td class="name">Open Season 3</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: [新增] 猫已巴、李大饼、装配厂一枝花、; 作画监督: [新增] 原动画监督：猫已巴; 制片: [新增] 陈冲、赵堃瑾、金昭妍、张灜燕; 剪辑: [新增] 猫已巴; 原画: 猫已巴、猫已巴 → 草原/一原：猫已巴、V2、羊静; 导演: [新增] 猫已巴; 摄影: [新增] 后期摄影：海月映画工作室、猫已; 演出: [新增] 猫已巴; 特别鸣谢: [新增] 刘敏(咕咚动画)；前排鸣谢：邓...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">列女战纪：女娲石记</td>
+                        <td class="name">列女战纪：女娲石记</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;OVA&#39;, &#39;漫画改&#39;, &#39;美国&#39;] → [&#39;科幻&#39;, &#39;OVA&#39;, &#39;漫画改&#39;, &#39;战斗&#39;, &#39;冒险; 制片人: Frank Paur、Marv → Frank Paur; 製作: Marvel Animatio → MLG Productions</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">绿巨人大战</td>
+                        <td class="name">Hulk Vs.</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">制片人: 伊藤裕史、松岡貴徳、小林遼、米 → 谷口葵、山内未來、薮遥花、松下; 协力: MADHOUSE（増原光幸、田 → MADHOUSE（増原光幸、田; 製作: 「ダイヤの A actⅡ‐SS → 「ダイヤの A actⅡ‐SS</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">钻石王牌 act2 第二季</td>
+                        <td class="name">ダイヤのA actⅡ Second Season</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">导演: [新增] 林永长、袁惠芬</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">熊出没之神奇宝物 第二季</td>
+                        <td class="name">熊出没之神奇宝物2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">话数: * → 8</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">闹鬼酒店 第二季</td>
+                        <td class="name">Haunted Hotel Season 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: [新增] 橋詰力、椎武翼</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">决斗大师 LOST ～断罪的少年～</td>
+                        <td class="name">Duel Masters LOST ～断罪の少年～</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: [新增] 张一 / 唐奥博、李宏基; 主题歌作词: [新增] 张一 / 唐奥博、曹紫建; 主题歌演出: [新增] 马嘉祺 / 黄霄雲; 主题歌编曲: [新增] 宋涛 / 李宏基; 人物设定: [新增] 角色美术设计师：刘胤池、姚凯、; 企画: 策划：聂祯威、韩慧敏、李金蕾、 → 策划：聂祯威、韩慧敏、李金蕾、; 分镜: [新增] 分镜指导：黄山川、曹润泽；分镜; 制片人: 李莹莹 →...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">大唐妖探</td>
+                        <td class="name">大唐妖探</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 罗温的男人 | Seeing  → 罗恩的男人 | Seeing ; 中文名: 罗恩的男人 → 罗温的男人</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">罗温的男人</td>
+                        <td class="name">라온의 남자</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物原案: [新增] 宮前真一</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">美少女电脑战队</td>
+                        <td class="name">電脳戦隊ヴギィ&#39;ズ★エンジェル</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: [新增] MADBOX; 人物设定: [新增] 筱雅律; 分镜: [新增] 浜崎博嗣、川村賢一、夏目真悟、; 制片人: [新增] 森島太朗、Megan Thom; 剪辑: [新增] 木村佳史子、塚常真理子; 动画制作: [新增] MADHOUSE; 动画制片人: [新增] 福士裕一郎; 动画检查: [新增] 坂詰かよ; 原作: [新增] Marvel Comics; 原画: [新增] ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">钢铁侠 纳米魔崛起</td>
+                        <td class="name">Iron Man: Rise of Technovore</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: [新增] 三维：毛毛、小睿; 原画: [新增] 阿根(李根)、卡里(黄俊桦)、; 录音: [新增] 贾帅强、梁潇毅; 录音工作室: [新增] 北斗企鹅; 摄影: [新增] 后期：凉爽、尼昂、叁拾、李亨; 特别鸣谢: [新增] THANKS：秃贝、云飞、田鼠; 背景美术: [新增] 盲眼(吕屹峰)、浩克、猫渣、驼; 色彩设计: [新增] oz、李亨、板凳、洛伊、池年、; 补间动画: [新...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">罗小黑战记 众生之门篇</td>
+                        <td class="name">罗小黑战记 众生之门篇</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: [新增] ABCオプテラスタジオ、SIL; 主题歌作曲: [新增] ハンブレッダーズ / Ryos; 主题歌作词: [新增] ムツムロアキラ / Zinee; 主题歌演出: [新增] ハンブレッダーズ / KID ; 主题歌编曲: [新增] ハンブレッダーズ / Ryos; 企画: [新增] 許樹人、川中恵一、相原勉、大好; 作画监督: [新增] 辻村歩、西原理奈子、斉藤和也、; 分镜...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">夜樱家的大作战 第二季 第2部分</td>
+                        <td class="name">夜桜さんちの大作戦 第2期 第2クール</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: 鳥山明 → 鳥山明；动画人物设定：山室直儀; 剪辑: 福光伸一；助手：西村英一、吉田 → 福光伸一; 导演: [新增] 山室直儀</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">龙珠Z 复活的F</td>
+                        <td class="name">ドラゴンボールZ 復活のF</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (257→258字符); meta_tags: [&#39;短片&#39;, &#39;原创&#39;] → [&#39;科幻&#39;, &#39;同人&#39;, &#39;短片&#39;, &#39;原创&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">Daicon3 开幕动画</td>
+                        <td class="name">DAICON III OPENING ANIMATION</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;OVA&#39;, &#39;漫画改&#39;, &#39;美国&#39;] → [&#39;科幻&#39;, &#39;OVA&#39;, &#39;漫画改&#39;, &#39;战斗&#39;, &#39;冒险; 制片人: Gary Hartle、Mar → Gary Hartle; 製作: Marvel Animatio → Marvel Animatio</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">少年复仇者：明日英雄</td>
+                        <td class="name">Next Avengers: Heroes of Tomor...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 战斗之魂 Core光主之人 → 战斗之魂 Core光主之人 |</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">战斗之魂 Core的光主们</td>
+                        <td class="name">バトルスピリッツ -コアの光主たち-</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: [新增] 木戸まゆ、陳輝; CG 导演: [新增] 鈴森風音; 人物原案: [新增] JSK; 企画: [新增] 若月賢一、高原文彦、臼井裕詞; 作画监督: 中島瑛介、日根野優子、宮本武史 → 中島瑛介、日根野優子、宮本武史; 别名: 铁旅！邂逅铁道少女 | 铁旅！ → Tetsuryou! meet; 制片人: [新增] 大畠暁桜、川上朋宏、鞍谷光; 剪辑: [新增] 岡祐司; 动画...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">铁旅！meet with 铁道少女</td>
+                        <td class="name">てつりょー！meet with 鉄道むすめ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;欧美&#39;, &#39;美国&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;美国&#39;, &#39;青年向</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">香肠派对</td>
+                        <td class="name">Sausage Party</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;美国&#39;, &#39;欧美&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">Emoji表情大电影</td>
+                        <td class="name">The Emoji Movie</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (253→392字符); 作画监督: 沖浅利、内田百香、岩崎たいすけ → 沖浅利、内田百香、岩崎たいすけ; 演出: 龍輪直征 → 龍輪直征、間島崇寛; 道具设计: 沖浅利、村田駿(Cypic)、 → 沖浅利、村田駿(Cypic)、</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">学生会也有洞！</td>
+                        <td class="name">生徒会にも穴はある！</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;英国&#39;, &#39;中国&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;萌系&#39;, &#39;子供向; 动画制作: [新增] 雷普恩动画设计(北京)有限公司; 监制: [新增] 总监制：傅若清、赵依芳; 製作: [新增] 出品：上海华策电影有限公司、孩</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">小猪佩奇·完美假期</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;冒险&#39;, &#39;萌系&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">冲浪季节2：波浪狂热</td>
+                        <td class="name">Surf&#39;s Up 2: WaveMania</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">播放结束: [新增] 2026年9月20日; 话数: * → 24</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">クマーバ シーズン3</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (258→469字符); meta_tags: [&#39;TV&#39;, &#39;恋爱&#39;, &#39;日本&#39;, &#39;小说改&#39;] → [&#39;校园&#39;, &#39;TV&#39;, &#39;恋爱&#39;, &#39;日本&#39;, &#39;小说改&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">冷淡的佐藤同学只对我撒娇</td>
+                        <td class="name">塩対応の佐藤さんが俺にだけ甘い</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 1979-01-01 → 1979-08-01; meta_tags: [&#39;剧场版&#39;, &#39;韩国&#39;] → [&#39;剧场版&#39;, &#39;原创&#39;, &#39;韩国&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">간첩 잡는 똘이장군</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">动画制作: 绯和、中期制作：CMC MED → 分镜制作：深圳市澜映画动画制作; 录音: 张吉轩、王星辰 → 张吉轩、王星辰(王星晨)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">时光代理人 第三季 Part 1</td>
+                        <td class="name">时光代理人Ⅲ Part One</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;欧美&#39;] → [&#39;科幻&#39;, &#39;TV&#39;, &#39;漫画改&#39;, &#39;冒险&#39;, &#39;美国&#39;; 日文名: The Incredible Hulk(1997) → The Incredible Hulk Season 2; 动画制作: New World Anima → Saerom Animatio</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">无敌浩克 第二季</td>
+                        <td class="name">The Incredible Hulk Season 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;百合&#39;, &#39;TV&#39;, &#39;日本&#39;, &#39;原创&#39;] → [&#39;TV&#39;, &#39;日本&#39;, &#39;原创&#39;, &#39;音乐&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">空之音</td>
+                        <td class="name">ソ・ラ・ノ・ヲ・ト</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">放送开始: * → 2027年</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">望爱前辈是朋友</td>
+                        <td class="name">のあ先輩はともだち。</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: En`en no Shoubo → Fire Force Seas</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">炎炎消防队 二之章</td>
+                        <td class="name">炎炎ノ消防隊 弐ノ章</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: [新增] SOUKI PRODUCTIO; CG 导演: [新增] 陈晓晴、章立成; 主演出: [新增] 東野朱峰; 主题歌作曲: [新增] TeddyLoid / 鶴崎輝; 主题歌作词: [新增] TeddyLoid、西川貴教 ; 主题歌演出: [新增] 西川貴教 / DayRe:; 主题歌编曲: [新增] TeddyLoid / 鶴崎輝; 企画: [新增] 宇佐義大、岩上敦宏、國枝...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">兽王武神丹帝拜恩</td>
+                        <td class="name">獣王武神ダンデヴァイン</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (281→940字符); 企画: [新增] 工藤大丈、鎌形英一、許樹人、松; 制片人: [新增] 関根龍二、志治雄一郎、押部慧星; 原画: 坂本哲也、丹羽沙彩、細井伶奈、 → 坂本哲也、丹羽沙彩、細井伶奈、; 执行制片人: [新增] 渡部竜平、鮫島正太、大村恵一、; 製作: [新增] PROJECT-ITEM（KA; ...还有2项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">某暗部的少女共栖</td>
+                        <td class="name">とある暗部の少女共棲</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;悬疑&#39;, &#39;玄幻&#39;, &#39;小说改&#39;, &#39;中国&#39;, &#39;WEB → [&#39;WEB&#39;, &#39;中国&#39;, &#39;小说改&#39;, &#39;悬疑&#39;, &#39;玄幻; Copyright: [新增] 北京爱奇艺科技有限公司; 主题歌作曲: [新增] 片头曲：杨秉音 / 片尾曲：林; 主题歌作词: [新增] 片头曲：纯音乐 / 片尾曲：申; 主题歌演出: [新增] 片头曲：纯音乐 / 片尾曲：李; 主题歌编曲: [...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">神国之上</td>
+                        <td class="name">神国之上</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;冒险&#39;, &#39;英国&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">亚瑟·圣诞</td>
+                        <td class="name">Arthur Christmas</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">导演: [新增] 上田芳裕</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">龙珠Z 击败超战士</td>
+                        <td class="name">ドラゴンボールZ 超戦士撃破!!勝つのはオレだ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 名侦探柯南 30号杀人事件 → Detective Conan</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">名侦探柯南 第30号杀人事件</td>
+                        <td class="name">名探偵コナン 30号殺人事件</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;战斗&#39;, &#39;玄幻&#39;, &#39;小说改&#39;, &#39;中国&#39;, &#39;WEB → [&#39;WEB&#39;, &#39;中国&#39;, &#39;小说改&#39;, &#39;战斗&#39;, &#39;玄幻; Copyright: [新增] 上海宽娱数码科技有限公司; 主题歌作曲: [新增] 片头曲：兰海隆 / 片尾曲：白; 主题歌作词: [新增] 片头曲：白杨 / 片尾曲：白杨; 主题歌演出: [新增] 片头曲：裂天 / 片尾曲：王伟; 主题歌编曲: ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">永生 第二季</td>
+                        <td class="name">永生之十年之约</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: 片岡健太 → 片岡健太 / HALDONA; 主题歌作词: 片岡健太 → 片岡健太 / HALDONA; 主题歌演出: sumika → sumika / Luov; 主题歌编曲: 宮田&#39;レフティ&#39;リョウ &amp; s → 宮田&#39;レフティ&#39;リョウ &amp; s; 动画制作: [新增] WIT STUDIO(2); 原画: [已删除]; 第二原画: [已删除]; ...还有4项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">被放逐的作弊赋予魔术师享受随心所欲的第二人生。</td>
+                        <td class="name">追放されたチート付与魔術師は気ままなセカンドライフを謳歌する...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;后宫&#39;, &#39;奇幻&#39;, &#39;小说改&#39;, &#39;日本&#39; → [&#39;后宫&#39;, &#39;TV&#39;, &#39;日本&#39;, &#39;奇幻&#39;, &#39;小说改&#39;; 分镜: 板村智幸(1,5)、数井浩子( → 板村智幸(1,5)、数井浩子(</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">物语系列 第二季</td>
+                        <td class="name">〈物語〉シリーズ セカンドシーズン</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌演出: The Cure(OP) /  → The Cure / Peti; 作画监督: 菅野一期(1) → 菅野一期(OP,ED,1,3); 分镜: 五十嵐海(1) → 五十嵐海(1,3)、内田直人(; 原画: 菅野一期 → 菅野一期、五十嵐海、雨宮哲、す; 官方网站: https://www.cyb → https://www.cyb; 演出: [新增] 古川晟(1)、内田直人(2)、;...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">赛博朋克：边缘行者 2</td>
+                        <td class="name">Cyberpunk: Edgerunners 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: 山本倫、梅津哲郎、加瀬達規、柴 → 山本倫、梅津哲郎、加瀬達規、柴; 作画监督: [新增] 丸木宣明、高瀬亜貴子、明見裕子; 分镜: [新增] 石立太一、藤田春香、北之原孝將; 动画检查: [新增] 黒田比呂子、中野恵美、端由美子; 原画: 秋竹斉一、浅間英裕、安藤京平、 → 石立太一、高瀬亜貴子、藤田春香; 宣传: [新增] 山口真由美; 摄影: 船本孝平、上野和樹、植田弘貴、 → ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">紫罗兰永恒花园</td>
+                        <td class="name">ヴァイオレット・エヴァーガーデン</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: 新增 [&#39;TV&#39;, &#39;漫画改&#39;, &#39;美国&#39;]; 制片人: [新增] Brian Gatewood、; 原作: [新增] Joel Rose、Antho; 在线播放平台: [新增] HBO Max; 导演: [新增] Sam Liu; 播放电视台: [新增] Cartoon Network; 放送开始: 2026-10-03 → 2026年10月3日; ...还有3项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">极道寿司次郎！</td>
+                        <td class="name">Get Jiro!</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;欧美&#39;] → [&#39;科幻&#39;, &#39;TV&#39;, &#39;漫画改&#39;, &#39;战斗&#39;, &#39;冒险&#39;; 企画: [新增] Craig Kyle、Chri; 分镜: [新增] Olivier Poirett; 动画制作: [新增] MoonScoop; 导演: [新增] Franck Michel; 执行制片人: [新增] Christophe di S; 演出: [新增] Chris ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">神奇四侠：世界最伟大的英雄们</td>
+                        <td class="name">Fantastic Four: World&#39;s Greate...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: [新增] Kyoufu Collecto</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">恐怖收集者</td>
+                        <td class="name">恐怖コレクター</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">放送开始: * → 2027年1月</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">与可爱剑圣女师傅的幸福同居生活</td>
+                        <td class="name">同居している剣聖の女師匠が可愛すぎて毎日幸せです</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (265→245字符); 主题歌作曲: [新增] 林田健司 || 沢田聖子 / ; 主题歌作词: [新增] 林田健司 || 沢田聖子 / ; 主题歌演出: [新增] SMAP(TV・Blu-ray; 主题歌编曲: [新增] CHOKKAKU(TV・Blu; 企画: 片岡義朗（ASATSU） → 片岡義朗; 作画监督: [新增] 小西洋子、音地正行、木村文代、; 分镜: [新增] 辻初樹、...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">小红帽恰恰</td>
+                        <td class="name">赤ずきんチャチャ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;欧美&#39;] → [&#39;科幻&#39;, &#39;TV&#39;, &#39;漫画改&#39;, &#39;冒险&#39;, &#39;美国&#39;; 日文名: Iron Man(1994) → Iron Man; 执行制片人: Stan Lee、Avi Ar → Avi Arad、Stan L; 监制: Ron Friedman (2 → Ron Friedman (2; 製作: Marvel Entertai → Marvel ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">钢铁侠 第一季</td>
+                        <td class="name">Iron Man</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 笹木信作；无表记：新房昭之、劇 → 笹木信作；无表记：新房昭之、劇</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">剧场版 魔法少女小圆 [新篇] 叛逆的物语</td>
+                        <td class="name">劇場版 魔法少女まどか☆マギカ [新編] 叛逆の物語</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: [新增] #Zombie Sagashi</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">僵尸搜寻中</td>
+                        <td class="name">#ゾンビさがしてます</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 最强出涸皇子的暗跃帝位争夺 | → Saikyou Degaras</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">最强废渣皇子暗中活跃于帝位之争</td>
+                        <td class="name">最強出涸らし皇子の暗躍帝位争い</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (189→383字符); meta_tags: [&#39;TV&#39;, &#39;日本&#39;, &#39;小说改&#39;] → [&#39;TV&#39;, &#39;日本&#39;, &#39;奇幻&#39;, &#39;小说改&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">被驱逐出勇者队伍的白魔导师， 被S级冒险者捡到 ～这个白魔导...</td>
+                        <td class="name">勇者パーティーを追放された白魔導師、Sランク冒険者に拾われる...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加日期: 2027-01-08; meta_tags: [&#39;TV&#39;, &#39;日本&#39;, &#39;漫画改&#39;] → [&#39;百合&#39;, &#39;校园&#39;, &#39;TV&#39;, &#39;日本&#39;, &#39;漫画改&#39;; 放送开始: 2027年1月 → 2027年1月8日</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">在意的人不是他</td>
+                        <td class="name">気になってる人が男じゃなかった</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;OVA&#39;, &#39;漫画改&#39;, &#39;美国&#39;] → [&#39;科幻&#39;, &#39;奇幻&#39;, &#39;OVA&#39;, &#39;漫画改&#39;, &#39;战斗; 製作: Marvel Entertai → Lionsgate Films</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">终极复仇者2：黑豹的崛起</td>
+                        <td class="name">Ultimate Avengers 2: Rise of t...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: [新增] Yuuka; 别名: [新增] Pop Pap Polters; 摄影: [新增] 根岸祐太; 播放电视台: テレビ朝日にて → テレビ朝日; 脚本: [新增] Mozu、Yuuka; 音乐: [新增] スキャット後藤; ...还有3项变化; 添加中文名: 啵普与帕噗与珀尔嗒</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">啵普与帕噗与珀尔嗒</td>
+                        <td class="name">ポップパップポルターズ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">製作: [新增] 制作・著作：NHK、NHKエン</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">七叶树王国的七名骑士</td>
+                        <td class="name">マロニエ王国の七人の騎士</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">动画制作: 追光动画、制作合作公司：大连多 → 追光动画、制作合作公司：大连多; 协力: [新增] 参与制作：阿迪娜・阿力普、蔡宇; 色彩设计: [新增] 波子、陈岱莉、黄耀廷、黎子慧、; 补间动画: [新增] 清线：波子、陈岱莉、黄耀廷、黎; ...还有1项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">聊斋：兰若寺</td>
+                        <td class="name">聊斋：兰若寺</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">剪辑: [新增] 新海コウキ; 摄影监督: [新增] 櫻井裕貴（レアトリック）; 美术监督: [新增] 片平真司、高橋忍; 美术设计: [新增] 高薄亜実、篠宮よう、レコメンデ; 色彩设计: [新增] 平山忍; ...还有2项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">在遍地都是丧尸的世界里唯独我不被袭击</td>
+                        <td class="name">ゾンビのあふれた世界で俺だけが襲われない</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: Fleet Girls Col → KanColle Season</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">舰队Collection 总有一天，在那片海</td>
+                        <td class="name">「艦これ」いつかあの海で</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原画: 中川英樹、山下清悟、Bahi  → 中川英樹、山下清悟、Bahi </div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">日本桥高架下R计画</td>
+                        <td class="name">日本桥Rプロ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">製作: 宇宙パトロールルル子製作委員会 → 宇宙パトロールルル子製作委員会</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">宇宙巡警露露子</td>
+                        <td class="name">宇宙パトロールルル子</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (205→206字符); meta_tags: [&#39;OVA&#39;] → [&#39;OVA&#39;, &#39;漫画改&#39;]; 制片人: [新增] 日本コロムビア; 原作: [新增] 坪田愛華; 官方网站: [新增] https://www.geo; 导演: [新增] 杉山卓; 片长: 50分 → 50分钟; 话数: *1 → 1; ...还有3项变化; 添加中文名: 爱华的地球</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">爱华的地球</td>
+                        <td class="name">愛華ちゃんの地球</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;战斗&#39;, &#39;玄幻&#39;, &#39;小说改&#39;, &#39;中国&#39;, &#39;WEB → [&#39;WEB&#39;, &#39;中国&#39;, &#39;小说改&#39;, &#39;战斗&#39;, &#39;玄幻; Copyright: [新增] 上海宽娱数码科技有限公司; 主题歌作曲: [新增] 片头曲：兰海隆 / 片尾曲：白; 主题歌作词: [新增] 片头曲：白杨 / 片尾曲：白杨; 主题歌演出: [新增] 片头曲：裂天 / 片尾曲：Ta; 主题歌编曲: ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">永生</td>
+                        <td class="name">永生</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 1983-01-01 → 1983-07-30; 片长: [新增] 72分钟</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">슈퍼특급 마징가7</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">演出: 宮本幸裕(1,9)、尋田耕輔( → 宮本幸裕(1,9)、尋田耕輔(</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">幸腹涂鸦</td>
+                        <td class="name">幸腹グラフィティ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加日期: 2027-01-24; meta_tags: [&#39;科幻&#39;, &#39;TV&#39;, &#39;欧美&#39;] → [删除]; 放送开始: * → 2027年1月24日; 放送星期: [新增] 星期日</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">常见副作用 第二季</td>
+                        <td class="name">Common Side Effects Season 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;漫画改&#39;, &#39;美国&#39;, &#39;欧美&#39;] → [&#39;剧场版&#39;, &#39;漫画改&#39;, &#39;冒险&#39;, &#39;美国&#39;, &#39;欧美; 制片人: Steven Allan Sp → Steven Spielber; 制片国家: 美国 / 新西兰 → 美国、新西兰; 导演: Steven Allan Sp → Steven Spielber; 语言: [已删除]; ...还有1项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">丁丁历险记</td>
+                        <td class="name">The Adventures of Tintin</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原作: [新增] Paolo Bacigalup</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">爱、死亡 &amp; 机器人 第二季</td>
+                        <td class="name">Love, Death &amp; Robots Volume 2</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;短片&#39;, &#39;原创&#39;, &#39;WEB&#39;] → [&#39;原创&#39;, &#39;WEB&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">被包围的世界</td>
+                        <td class="name">囲まれた世界</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;, &#39;欧美&#39;, &#39;科幻&#39;, &#39;美国&#39;, &#39;美食&#39; → [&#39;科幻&#39;, &#39;喜剧&#39;, &#39;剧场版&#39;, &#39;恋爱&#39;, &#39;漫画改; 编剧: [已删除]; 脚本: [新增] Phil Lord、Chris</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">天降美食</td>
+                        <td class="name">Cloudy with a Chance of Meatba...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">作画监督: 石川健介、小倉典子、冨永一仁、 → 石川健介、小倉典子、冨永一仁、</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">罪人与龙共舞</td>
+                        <td class="name">されど罪人は竜と踊る</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 新房昭之(NC)、島津裕行(1 → 島津裕行(1,7)、宮崎修治(</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">夏之岚!</td>
+                        <td class="name">夏のあらし!</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加简介; meta_tags: [&#39;TV&#39;, &#39;日本&#39;, &#39;漫画改&#39;] → [&#39;TV&#39;, &#39;日本&#39;]; 日文名: NARUTO-ナルト- 20周年記念完全新作 → NARUTO-ナルト-×NINKŪ-忍空-; CG 导演: [新增] 中島豊; Copyright: [已删除]; 主题歌演出: [新增] 「 GO!!! 」 FLOW ; 人物设定: [新增] 西尾鉄也; 别名: [新增] NARU...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">火影忍者×忍空</td>
+                        <td class="name">NARUTO-ナルト-×NINKŪ-忍空-</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;TV&#39;, &#39;日本&#39;, &#39;原创&#39;] → [&#39;TV&#39;, &#39;日本&#39;, &#39;原创&#39;, &#39;短片集&#39;]; 添加中文名: 周刊轻小说动画</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">周刊轻小说动画</td>
+                        <td class="name">週刊ラノべアニメ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 1976-01-01 → 1976-12-09; meta_tags: [&#39;剧场版&#39;, &#39;韩国&#39;] → [&#39;剧场版&#39;, &#39;原创&#39;, &#39;韩国&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn"></td>
+                        <td class="name">철인 007</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;OVA&#39;, &#39;漫画改&#39;, &#39;美国&#39;] → [&#39;科幻&#39;, &#39;OVA&#39;, &#39;漫画改&#39;, &#39;战斗&#39;, &#39;冒险; 制片人: Eric S. Rollman → Eric S. Rollman; 製作: Marvel Animatio → MLG Productions</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">星球绿巨人</td>
+                        <td class="name">Planet Hulk</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 战斗之魂 Mirage → 战斗之魂 Mirage | 战</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">战斗之魂 幻影</td>
+                        <td class="name">バトルスピリッツミラージュ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加简介; 片长: [新增] 26分钟; 添加中文名: 名侦探柯南 安全指南</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">名侦探柯南 安全指南</td>
+                        <td class="name">名探偵コナン 防犯ガイド</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;冒险&#39;, &#39;英国&#39;, &#39;小说改; 类型: 喜剧 / 动画 / 家庭 /  → 喜剧、动画、家庭、冒险</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">神奇海盗团</td>
+                        <td class="name">The Pirates! In an Adventure w...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">3DCG: [新增] OLM Digital; 主题歌作曲: [新增] TERU / Tom-H@ck; 主题歌作词: [新增] TERU / hotaru; 主题歌演出: [新增] GLAY / OxT; 主题歌编曲: [新增] GLAY &amp; SEIJI KA; 人物设定: [新增] 東海林康和、植田実、田﨑聡; 企画: [新增] 村中悠介、伊藤隆行、若月賢一、; 作画监督: [新增] 木下雪映...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">钻石王牌 act2 第二季 第2部分</td>
+                        <td class="name">ダイヤのA actⅡ Second Season 第2クール</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;日本&#39;, &#39;OVA&#39;, &#39;原创&#39;] → [&#39;同人&#39;, &#39;日本&#39;, &#39;OVA&#39;, &#39;原创&#39;]</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">绝对纯白 魔法少女</td>
+                        <td class="name">絶対純白魔法少女</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">日期: 2009-01-01 → 2009-03-12; 片长: 65min → 64分钟</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">对不起先生轶事</td>
+                        <td class="name">제불찰씨 이야기</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">主题歌作曲: [新增] 藤井宏一 / KAN / 原由; 主题歌作词: [新增] 亜伊林 / 岩里祐穂 / 原由; 主题歌演出: [新增] 永井真理子 / 今井美樹 / ; 主题歌编曲: [新增] 根岸貴幸 / 佐藤準 / 小林; 作画监督: [新增] 桜井邦彦、浜崎博嗣、さかいあき; 分镜: [新增] ときたひろこ、山田勝久、さかい; 制片人: 読売テレビ、キティ・フィルム、 → 読売テレビ、キ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">以柔克刚</td>
+                        <td class="name">YAWARA!</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: Zannen na Ikimo → 遗憾生物事典 第二季 | Za; 中文名: 遗憾生物事典 第二季 → 残念生物事典 第二季</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">残念生物事典 第二季</td>
+                        <td class="name">ざんねんないきもの事典 第2期</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: Steel Ball Run: → JoJo&#39;s Bizarre </div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">飙马野郎 JOJO的奇妙冒险 第一赛段</td>
+                        <td class="name">スティール・ボール・ラン ジョジョの奇妙な冒険 1st ST...</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">添加日期: 2027-01-04; 主题歌作曲: [新增] TK（凛として時雨）; 主题歌作词: [新增] TK（凛として時雨）; 主题歌编曲: [新增] TK（凛として時雨）; 放送开始: 2027年1月 → 2027年1月4日; 放送星期: [新增] 星期一; 美术监督: [新增] 伊藤拓海（Andraft）; ...还有3项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">杂用赋与术师发现自己是最强之前</td>
+                        <td class="name">雑用付与術師が自分の最強に気付くまで</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">别名: 不擅交際的未亡人雪女與詛咒戒指 → The Lonely Snow</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">不擅交际的未亡人雪女与诅咒戒指</td>
+                        <td class="name">人付き合いが苦手な未亡人の雪女さんと呪いの指輪</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">人物设定: 小磯沙矢香；副人设：板井寛樹、 → 小磯沙矢香</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">忍者神威</td>
+                        <td class="name">Ninja Kamui</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (175→263字符)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">PSYREN -决战游戏-</td>
+                        <td class="name">PSYREN -サイレン-</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">作画监督: [新增] 金井裕子、清水直樹、内山富士治; 分镜: [新增] 吉澤太智; 演出: [新增] 吉澤太智; 话数: * → 11; ...还有1项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">弹珠汽水瓶里的千岁同学 第2部分</td>
+                        <td class="name">千歳くんはラムネ瓶のなか 第2クール</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;战斗&#39;, &#39;玄幻&#39;, &#39;小说改&#39;, &#39;中国&#39;, &#39;WEB → [&#39;WEB&#39;, &#39;中国&#39;, &#39;小说改&#39;, &#39;战斗&#39;, &#39;玄幻; Copyright: [新增] 上海宽娱数码科技有限公司; 主题歌作曲: [新增] 片头曲：付尧 / 片尾曲：白杨; 主题歌作词: [新增] 片头曲：于晓明 / 片尾曲：白; 主题歌演出: [新增] 片头曲：戴荃 / 片尾曲：王伟; 主题歌编曲: ...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">永生 第三季</td>
+                        <td class="name">永生之气壮山河</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">分镜: 新房昭之(NC)、龍輪直征(1 → 龍輪直征(1-2,8,12)、</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">即使如此小镇依然转动</td>
+                        <td class="name">それでも町は廻っている</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原作: [新增] 刘宇昆（第8集）</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">爱、死亡 &amp; 机器人</td>
+                        <td class="name">Love, Death &amp; Robots</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (91→298字符)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">初恋限定。</td>
+                        <td class="name">初恋限定。</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">原作: [新增] John Scalzi (1)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">爱、死亡 &amp; 机器人 第三季</td>
+                        <td class="name">Love, Death &amp; Robots Volume 3</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (173→174字符); 话数: * → 13</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">小泉八云的怪谈世界</td>
+                        <td class="name">小泉八雲のKWAIDANの世界</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (619→610字符)</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">罗梅莉亚战记</td>
+                        <td class="name">ロメリア戦記</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">剪辑: 尾形治敏(1-2)、辺見俊夫( → 尾形治敏(1-2)、伊藤勇喜子; 原画: [新增] 川口栄夫、桜井芳久、土信田和幸; 摄影: [新增] 藤田正明、山口利明、久保田典秀; 背景美术: [新增] 明石貞一、宮本清司、明石えり子; 色彩设计: [新增] 村上芳枝、宝田ゆう子、伊藤みほ; 补间动画: [新增] 松田秀明、坂本豊、白川宏、里雨; ...还有3项变化</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">相扑力士松太郎</td>
+                        <td class="name">のたり松太郎</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">meta_tags: [&#39;剧场版&#39;] → [&#39;喜剧&#39;, &#39;剧场版&#39;, &#39;原创&#39;, &#39;冒险&#39;, &#39;美国&#39;</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">丛林大反攻4：吓傻了</td>
+                        <td class="name">Open Season: Scared Silly</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">简介更新 (530→522字符); 主题歌作曲: [新增] Kamikaze Boy / ; 主题歌作词: [新增] Kamikaze Boy、Je; 主题歌演出: [新增] MAN WITH A MISS; 主题歌编曲: [新增] MAN WITH A MISS; 作画监督: [新增] 大飞、咪咪、孙嘉宝、山口綾加、; 分镜: [新增] 渡邉徹明; 制片人: [新增] 嶋岡良介、日向泰隆、西康介...</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">朱色假面</td>
+                        <td class="name">朱色の仮面</td>
+                        <td></td>
+                        <td></td>
+</tr>
+<tr>
+                        <td><div class="summary">Copyright: Toei Animation, → ©東映・集英社・東映動画 19; 导演: [新增] 山内重保</div></td>
+                        <td class="id-col"></td>
+                        <td class="name-cn">龙珠Z 复活的融合！悟空与贝吉塔</td>
+                        <td class="name">ドラゴンボールZ 復活のフュージョン!!悟空とベジータ</td>
+                        <td></td>
+                        <td></td>
+</tr>
+                </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showSection(name) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(name).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        function filterTable(type, keyword) {
+            const table = document.getElementById('table' + type.charAt(0).toUpperCase() + type.slice(1));
+            if (!table) return;
+            const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+            const kw = keyword.toLowerCase();
+            for (let row of rows) {
+                let text = '';
+                for (let cell of row.cells) {
+                    text += cell.textContent.toLowerCase() + ' ';
+                }
+                row.style.display = text.includes(kw) ? '' : 'none';
+            }
+        }
+    </script>
+</body>
+</html>
