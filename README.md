@@ -84,7 +84,7 @@ Bangumi-Archive-Anime-Excel/
 
 BGM 插件通过 raw URL 读取的动画数据，**按字段类别切成 6 片**；每片仍是「**表头 + 值数组**」两段式 JSON Lines 格式，再经 gzip 压缩。
 
-- **大小**：约 22 MB（22,687,278 字节，解压后 58.90 MiB）
+- **大小**：约 22 MB（22,716,696 字节，解压后 58.99 MiB）
 - **记录数**：31174 条
 - **编码**：UTF-8 无 BOM，LF 换行
 - **更新频率**：每周三（跟随 Bangumi 官方 dump 节奏）
@@ -360,7 +360,7 @@ console.log(rows.length, rows[0].name);
 |--------|------|----------|
 | <span style="color:#2da44e">**别名**</span> | 别名（` \| ` 分隔，99.7% 记录都有） | 字符串 |
 | <span style="color:#2da44e">**话数**</span> | 集数 | 字符串 |
-| <span style="color:#2da44e">**播放结束**</span> | 完播日 | 字符串 |
+| <span style="color:#2da44e">**播放结束**</span> | 完播日 | 字符串 |<br>infobox 登记值优先；infobox 未登记时取该条目**全部章节的最大播出日期**兜底（2026-10-19 起，非空率 25.3% → 44.6%，见下方「完播日推导」） |
 | <span style="color:#2da44e">**动画制作公司**</span> | 制作公司 | 字符串 |
 | <span style="color:#2da44e">**片长**</span> | 时长/分钟 | 字符串 |
 | <span style="color:#2da44e">**制片国家**</span> | 制片国家/地区 | 字符串 |
@@ -417,7 +417,7 @@ console.log(rows.length, rows[0].name);
 |--------|------|
 | `type` | 条目类型恒为 2（动画），由文件名 `anime` 表达，不再输出（2026-09-18 起） |
 | `url` | dump 不含，消费端从 `sid` 构造（`https://bgm.tv/subject/{sid}`） |
-| `episode` | dump 不含观看集数，消费端使用 infobox 的「话数」字段 |
+| `episode` | 章节明细不下发（消费端使用 infobox 的「话数」字段）；但 dump 侧的完播日推导会读取章节数据，见下方「完播日推导」 |
 | `comment` | dump 不含个人评论，由用户在 Excel「剧透/感言」列自行维护 |
 
 #### <span style="color:#2da44e"> 新增 2026-07-05</span> infobox字段解析说明
@@ -480,6 +480,20 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 
 注意：这些详细信息包含在infobox字段中，本数据集的Excel格式已将其解析为独立字段（详见上方"infobox解析字段"章节）。
 
+#### <span style="color:#2da44e"> 新增 2026-10-19</span> 完播日推导（章节 → 播放结束）
+
+`播放结束` 字段的取值规则：
+
+1. **infobox 登记值优先** —— Bangumi 页面上填了「播放结束」就用登记值，原样输出；
+2. **infobox 未登记时**，取该条目在 `type2_episode.jsonlines` 中**全部章节**（含 SP/OP/ED）的最大播出日期（airdate）兜底，格式与 infobox 一致（`2008年9月28日`，不补零）；
+3. 两者冲突时**不覆盖** infobox 的登记值。
+
+为什么在 dump 侧推导：infobox 的「播放结束」只有约 25% 的条目有登记，而章节 airdate 覆盖更全、且随每周 dump 自动更新 —— 动画完结的那个周三，新一集的 airdate 落库，完播日随之推进。BGM 插件的「从远端仓库更新」因此**零改动**即可拿到最新完播日，不必逐条调 Bangumi API（免 token、免限流）。
+
+实测（dump 2026-10-13，31,174 条）：`播放结束` 非空从 **7,891 → 13,913 条**（25.3% → 44.6%），新增的 6,022 条全部来自章节推导，无任何旧值被改动。
+
+> 注：2026-10-19 之前的周更 dump，其 `type2_episode.jsonlines` 是按章节类型误拆的产物（只剩 OP 章节）；本期起 step01 已修正为按 `subject_id` 归属拆分，`type2_episode.jsonlines` 现含全部 34.8 万条动画章节。
+
 ### 2. `differences/`（差异摘要）
 
 每周 dump 对比生成的差异摘要，保留新增/删除的小文件和可视化报告。
@@ -499,7 +513,7 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 1. **Bangumi 官方**每周三凌晨发布 wiki 数据 dump
 2. **Archive 项目**下载 dump 并处理：
    - 解析 infobox、生成 Excel 全量存档与差异报告
-   - 执行 `step09_build_jsonl.py` 生成 6 个字段分片 `anime.<shard>.jsonlines.gz` + 清单 `anime.manifest.json`（各片为「表头 + 值数组」，gzip 压缩）
+   - 执行 `step09_build_jsonl.py` 生成 6 个字段分片 `anime.<shard>.jsonlines.gz` + 清单 `anime.manifest.json`（各片为「表头 + 值数组」，gzip 压缩）；同时做**完播日推导**：infobox 未登记「播放结束」的条目，取 `type2_episode.jsonlines` 中该条目全部章节的最大 airdate 兜底
    - 执行 `step10_sync_diff.py` 同步差异摘要到本仓库
 3. **本仓库**由 Archive 项目的 `push_data_repository.py` 自动提交：
    - 先执行 `Archive/scripts/update_badges.py`，把本 README 的徽章与统计信息对齐到最新的 `data/anime.manifest.json`
