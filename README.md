@@ -2,7 +2,7 @@
 
 > Bangumi 动画存档数据下发仓库 · 提供 JSONL 数据源与差异摘要供 BGM 插件同步使用
 
-[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-2da44e.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%20v3-2da44e.svg)](https://www.gnu.org/licenses/agpl-3.0.html)
 [![Data Update](https://img.shields.io/badge/更新频率-每周三-2da44e.svg)](https://github.com/bangumi/Archive)
 [![Last Update](https://img.shields.io/badge/更新日期-2026--10--13-2da44e.svg)](data/anime.manifest.json)
 [![Records](https://img.shields.io/badge/记录数-31174-2da44e.svg)](data/anime.manifest.json)
@@ -537,12 +537,19 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 
 ## 📜 许可协议
 
-本数据集遵循 [知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议 (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)。
+本项目采用 [GNU Affero 通用公共许可证第 3 版 (AGPL-3.0)](https://www.gnu.org/licenses/agpl-3.0.html) 开源。
 
-- ✅ **允许**：个人使用、学习、研究、非商业分享、数据分析
-- ❌ **禁止**：商业用途、未署名使用、移除许可声明
+Copyright (c) 2026 awujiana
 
-数据来源：[Bangumi Archive](https://github.com/bangumi/Archive)
+- ✅ **允许**：商业与非商业使用、修改、分发、私有部署
+- ✅ **要求**：分发时须附带完整源码，并保留同样的 AGPL-3.0 许可（copyleft）
+- ✅ **网络服务条款**：若将修改后的版本以网络服务形式提供给用户，须向这些用户提供对应的完整源码（AGPL 第 13 条）
+- ❌ **禁止**：闭源分发、移除版权与许可声明
+
+完整条款见仓库根目录的 [`LICENSE`](LICENSE) 文件。
+
+> 注：原始条目数据来源于 [Bangumi Archive](https://github.com/bangumi/Archive) 及其贡献者，原始内容版权归原作者所有；
+> 本仓库的整理、加工与衍生部分按 AGPL-3.0 授权。
 
 ---
 
