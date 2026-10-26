@@ -12,7 +12,7 @@
 
 <h1>Bangumi-Archive-Anime-Excel</h1>
 
-<strong>Bangumi 动画存档数据下发仓库 · 提供 JSONL 分片数据源与每周差异摘要，供 BGM 插件免 token 同步</strong>
+<strong>Bangumi 动画存档数据下发仓库 · 提供 JSONL 分片数据源与每周差异摘要，供 My Bangumi Database for WPS 插件免 token 同步</strong>
 
 </div>
 
@@ -615,7 +615,7 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 | [awujiana/Bangumi-Archive-Anime-Excel](https://github.com/awujiana/Bangumi-Archive-Anime-Excel) | 本仓库（数据下发） |
 | [bangumi/Archive](https://github.com/bangumi/Archive) | 上游原始数据源 |
 | `../Archive`（本地） | 数据处理流水线，含 `scripts/` 下全部生成与推送脚本 |
-| BGM 插件 | Excel 加载项，读取 JSONL 并同步 Bangumi API |
+| [awujiana/My-Bangumi-Database-for-WPS](https://github.com/awujiana/My-Bangumi-Database-for-WPS) | WPS 加载项（插件端），读取 JSONL 并同步 Bangumi API |
 
 <a id="sec-11"></a>
 
