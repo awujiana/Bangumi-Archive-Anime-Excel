@@ -2,7 +2,7 @@
 
 [![License](https://img.shields.io/badge/协议-CC%20BY--SA%204.0-2da44e)](LICENSE)
 [![Language](https://img.shields.io/badge/语言-简体中文-2da44e)](https://zh.wikipedia.org/wiki/中文)
-[![Author](https://img.shields.io/badge/作者-awujian-2da44e)](https://github.com/awujiana)
+[![Author](https://img.shields.io/badge/作者-awujiana-2da44e)](https://github.com/awujiana)
 [![Format](https://img.shields.io/badge/格式-JSONL%20%2B%20gzip-2da44e)](#sec-5)
 
 [![Data Update](https://img.shields.io/badge/更新频率-每周三-2da44e.svg)](https://github.com/bangumi/Archive)
@@ -621,7 +621,7 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 
 ## 📮 作者联系方式
 
-- **作者**：awujian
+- **作者**：awujiana
 - **GitHub**：[@awujiana](https://github.com/awujiana)
 - **邮箱**：bingshanlengtie@qq.com
 
@@ -646,4 +646,4 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 
 > 原始条目数据来源于 Bangumi 及其维基贡献者，原始内容版权归原作者所有；本仓库的整理、加工与衍生部分按 CC BY-SA 4.0 授权。
 
-版权所有 © 2026 awujian。
+版权所有 © 2026 awujiana。
