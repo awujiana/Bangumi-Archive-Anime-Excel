@@ -1,15 +1,47 @@
-# Bangumi-Archive-Anime-Excel
+<div align="center">
 
-> Bangumi 动画存档数据下发仓库 · 提供 JSONL 数据源与差异摘要供 BGM 插件同步使用
+[![License](https://img.shields.io/badge/协议-CC%20BY--SA%204.0-2da44e)](LICENSE)
+[![Language](https://img.shields.io/badge/语言-简体中文-2da44e)](https://zh.wikipedia.org/wiki/中文)
+[![Author](https://img.shields.io/badge/作者-awujian-2da44e)](https://github.com/awujiana)
+[![Format](https://img.shields.io/badge/格式-JSONL%20%2B%20gzip-2da44e)](#sec-5)
 
-[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%20v3-2da44e.svg)](https://www.gnu.org/licenses/agpl-3.0.html)
 [![Data Update](https://img.shields.io/badge/更新频率-每周三-2da44e.svg)](https://github.com/bangumi/Archive)
 [![Last Update](https://img.shields.io/badge/更新日期-2026--10--20-2da44e.svg)](data/anime.manifest.json)
 [![Records](https://img.shields.io/badge/记录数-31215-2da44e.svg)](data/anime.manifest.json)
+[![Stars](https://img.shields.io/github/stars/awujiana/Bangumi-Archive-Anime-Excel?label=Stars&color=2da44e)](https://github.com/awujiana/Bangumi-Archive-Anime-Excel/stargazers)
+
+<h1>Bangumi-Archive-Anime-Excel</h1>
+
+<strong>Bangumi 动画存档数据下发仓库 · 提供 JSONL 分片数据源与每周差异摘要，供 BGM 插件免 token 同步</strong>
+
+</div>
 
 ---
 
-## 📖 项目简介
+> [!WARNING]
+> 本项目的相当一部分代码由 AI 辅助生成，并经过持续的人工作业、联调和重构，但它仍然可能存在遗漏、边界情况处理不足或行为与预期不完全一致的问题。如果你在使用过程中发现 Bug、兼容性问题、异常行为或文档缺失，欢迎积极提交 Issue。最好附上复现步骤、日志、截图和系统版本信息，这会非常有帮助。
+
+## 📚 目录
+
+- [项目简介](#sec-1)
+- [核心特色](#sec-2)
+- [展示图](#sec-3)
+- [目录结构](#sec-4)
+- [数据文件说明](#sec-5)
+  - [使用方法](#sec-5-1)
+- [数据更新流程](#sec-6)
+- [注意事项](#sec-7)
+- [反馈建议](#sec-8)
+- [参考与致谢](#sec-9)
+- [关联仓库](#sec-10)
+- [作者联系方式](#sec-11)
+- [开源协议](#sec-12)
+
+---
+
+<a id="sec-1"></a>
+
+## 🚀 项目简介
 
 本仓库是 [Bangumi Archive](https://github.com/bangumi/Archive) 数据处理链路的**数据下发仓库**，由上游 Archive 项目 每周处理后同步而来。
 
@@ -24,23 +56,40 @@ Archive 项目 (处理 dump、生成 Excel 与差异)
         ↓ raw URL
 BGM 插件 (读取 JSONL → 写入 Excel → 同步 Bangumi API)
 ```
-本项目的Releases页面仅包含以下三类 Excel 文件:
+本项目的 Releases 页面仅包含以下三类 Excel 文件：
 
 | 文件名 | 类型 | 说明 |
 |--------|------|------|
-| `ani-bangumi-type2-YYYY-MM-DD.xlsx` | 主数据文件 | 完整原始导出字段(75 列),按日期归档的全量动画条目数据 |
-| `type2_subject_YYMMDD_vs_YYMMDD.xlsx` | 差异对比文件 | 相邻期次之间的差异记录(新增、删除、修改),命名格式为"新日期_vs_旧日期" |
-| `ani-bangumi-type2-YYYY-MM-DD-template.xlsx` | 模板转换文件 | 在主数据文件基础上精简的 42 列模板,面向用户填写收藏信息 |
+| `ani-bangumi-type2-YYYY-MM-DD.xlsx` | 主数据文件 | 完整原始导出字段（75 列），按日期归档的全量动画条目数据 |
+| `type2_subject_YYMMDD_vs_YYMMDD.xlsx` | 差异对比文件 | 相邻期次之间的差异记录（新增、删除、修改），命名格式为「新日期_vs_旧日期」 |
+| `ani-bangumi-type2-YYYY-MM-DD-template.xlsx` | 模板转换文件 | 在主数据文件基础上精简的 42 列模板，面向用户填写收藏信息 |
 
-### 数据预览图
-ani-bangumi-type2-YYYY-MM-DD.xlsx
-[![Archive提取为Excel预览图](https://free.picui.cn/free/2026/06/30/6a437e24cbe7f.png)]
+<a id="sec-2"></a>
 
-ani-bangumi-type2-YYYY-MM-DD-template.xlsx
-[![Archive模板转换为Excel预览图](https://free.picui.cn/free/2026/06/30/6a437e5e7ba36.png)]
+## ✨ 核心特色
 
+- **分片按需下载**：6 个字段分片彼此独立，插件按用户表格的表头只下用得到的片 —— 默认组合约 3.4 MB，较旧单片方案减少约 84% 的下载量。
+- **清单即入口**：`anime.manifest.json` 一次 GET（2 KB 出头）即可交代全部片名、字段、字节数与 sha256，无需靠 404 试探某个片是否存在。
+- **完整性可校验**：每片同时给出压缩后字节数与 SHA-256，下载后可逐字节比对，失败可定位到具体分片。
+- **免 token 同步**：数据随每周 dump 自动更新，插件直连 raw URL，不调用 Bangumi API，规避 token 与限流问题。
+- **完播日推导**：infobox 未登记「播放结束」时，取该条目全部章节的最大 airdate 兜底，非空率由 25.3% 提升至 44.6%。
+- **全量保真**：原始 dump 顶层字段不裁剪，37 个字段按分片归组，`tags` / `score_details` / `favorite` 做无损结构压缩。
+
+<a id="sec-3"></a>
+
+## 📷 展示图
+
+**主数据文件** `ani-bangumi-type2-YYYY-MM-DD.xlsx`（75 列全量导出）
+
+[![Archive 提取为 Excel 预览图](https://free.picui.cn/free/2026/06/30/6a437e24cbe7f.png)](https://free.picui.cn/free/2026/06/30/6a437e24cbe7f.png)
+
+**模板转换文件** `ani-bangumi-type2-YYYY-MM-DD-template.xlsx`（42 列精简模板）
+
+[![Archive 模板转换为 Excel 预览图](https://free.picui.cn/free/2026/06/30/6a437e5e7ba36.png)](https://free.picui.cn/free/2026/06/30/6a437e5e7ba36.png)
 
 ---
+
+<a id="sec-4"></a>
 
 ## 📂 目录结构
 
@@ -77,6 +126,8 @@ Bangumi-Archive-Anime-Excel/
 > **注意**：`*.xlsx` 文件仅在本地使用，不上传到 GitHub。
 
 ---
+
+<a id="sec-5"></a>
 
 ## 📊 数据文件说明
 
@@ -253,6 +304,8 @@ print([shard["file"] for shard in picked], sum(s["bytes"] for s in picked))
 > ⚠️ **不要把 `.gz` 当文本直接读**。GitHub raw CDN 对 `.jsonlines.gz` 返回的是原始二进制
 > （`Content-Type: application/octet-stream`，**没有** `Content-Encoding: gzip`），
 > 用 `fetch(...).text()` 或 `curl ... | head` 直接看只会得到乱码。
+
+<a id="sec-5-1"></a>
 
 #### 使用方法：下载 → 解压 → 校验 → 拼接
 
@@ -508,6 +561,8 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 
 ---
 
+<a id="sec-6"></a>
+
 ## 🔄 数据更新流程
 
 1. **Bangumi 官方**每周三凌晨发布 wiki 数据 dump
@@ -525,34 +580,73 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 
 ---
 
-## 🔗 相关项目
+<a id="sec-7"></a>
 
-| 项目 | 仓库 | 说明 |
-|------|------|------|
-| Archive 项目 | 本地 `../Archive` | 数据处理流水线（上游） |
-| Bangumi 官方 Archive | [bangumi/Archive](https://github.com/bangumi/Archive) | 原始数据源 |
-| BGM 插件 | — | Excel 加载项，读取 JSONL 并同步 Bangumi API |
+## ⚠️ 注意事项
 
----
+- **不要把 `.gz` 当文本直接读**：GitHub raw CDN 对 `.jsonlines.gz` 返回 `application/octet-stream` 且**不带** `Content-Encoding`，用 `fetch().text()` 或 `curl | head` 只会得到乱码。
+- **`sid` 不能作为选片依据**：它出现在每一片的 `fields` 里，按「包含 `sid` 就下载」判断会让 6 片全中、选片彻底失效。
+- **拼接依赖行序**：各片行序与 dump 完全一致、行数相同，按行号对齐即可；不要对单个分片单独排序。
+- **`type` 字段已移除**：文件名里的 `anime` 即表示 `type=2`，且该字段与插件中同名的「观看状态」语义冲突。
+- **口径可能随上游变化**：每周三 dump 后本仓库自动重写，字段口径与分片布局以 `anime.manifest.json` 的 `formatVersion` 为准。
 
-## 📜 许可协议
+<a id="sec-8"></a>
 
-本项目采用 [GNU Affero 通用公共许可证第 3 版 (AGPL-3.0)](https://www.gnu.org/licenses/agpl-3.0.html) 开源。
+## 💬 反馈建议
 
-Copyright (c) 2026 awujiana
+提交 Issue 时建议附上：
 
-- ✅ **允许**：商业与非商业使用、修改、分发、私有部署
-- ✅ **要求**：分发时须附带完整源码，并保留同样的 AGPL-3.0 许可（copyleft）
-- ✅ **网络服务条款**：若将修改后的版本以网络服务形式提供给用户，须向这些用户提供对应的完整源码（AGPL 第 13 条）
-- ❌ **禁止**：闭源分发、移除版权与许可声明
+- 数据期次（`anime.manifest.json` 的 `updatedAt`）与 `formatVersion`
+- 出问题的分片文件名与字段名
+- 复现步骤与预期结果
+- 相关日志或截图（若为插件侧问题，请附 Excel 加载项版本）
 
-完整条款见仓库根目录的 [`LICENSE`](LICENSE) 文件。
+<a id="sec-9"></a>
 
-> 注：原始条目数据来源于 [Bangumi Archive](https://github.com/bangumi/Archive) 及其贡献者，原始内容版权归原作者所有；
-> 本仓库的整理、加工与衍生部分按 AGPL-3.0 授权。
+## 🙏 参考与致谢
 
----
+- [bangumi/Archive](https://github.com/bangumi/Archive) —— 官方 wiki 数据 dump 与处理流水线，本项目全部数据的源头。
+- [Bangumi 番组计划](https://bgm.tv) 及全体维基贡献者 —— 条目数据的实际生产者。
+- [shields.io](https://shields.io) —— README 徽章渲染服务。
 
-## 📧 联系方式
+<a id="sec-10"></a>
 
-如有疑问或反馈，请联系：**bingshanlengtie@qq.com**
+## 🔗 关联仓库
+
+| 仓库 | 说明 |
+|------|------|
+| [awujiana/Bangumi-Archive-Anime-Excel](https://github.com/awujiana/Bangumi-Archive-Anime-Excel) | 本仓库（数据下发） |
+| [bangumi/Archive](https://github.com/bangumi/Archive) | 上游原始数据源 |
+| `../Archive`（本地） | 数据处理流水线，含 `scripts/` 下全部生成与推送脚本 |
+| BGM 插件 | Excel 加载项，读取 JSONL 并同步 Bangumi API |
+
+<a id="sec-11"></a>
+
+## 📮 作者联系方式
+
+- **作者**：awujian
+- **GitHub**：[@awujiana](https://github.com/awujiana)
+- **邮箱**：bingshanlengtie@qq.com
+
+<a id="sec-12"></a>
+
+## 📄 开源协议
+
+本仓库是**纯数据仓库**（不含可执行代码），全部数据与文档基于 **[CC BY-SA 4.0](LICENSE)**（Creative Commons Attribution-ShareAlike 4.0 International）授权，**允许商业使用**。
+
+你可以自由地：
+
+- **共享** —— 以任何媒介或格式复制、分发本仓库内容
+- **演绎** —— 修改、转换、以本仓库内容为基础进行创作，**包括商业目的**
+
+但须遵守以下条件：
+
+- **署名** —— 须注明来源（本仓库与 [Bangumi Archive](https://github.com/bangumi/Archive)）、附许可协议链接，并说明是否作出修改
+- **相同方式共享** —— 若修改、转换或以本仓库内容为基础创作，须以相同的 CC BY-SA 4.0 协议分发你的贡献
+- **无额外限制** —— 不得追加法律条款或技术措施，限制他人行使本许可已授予的权利
+
+完整法律文本见 [`LICENSE`](LICENSE)。
+
+> 原始条目数据来源于 Bangumi 及其维基贡献者，原始内容版权归原作者所有；本仓库的整理、加工与衍生部分按 CC BY-SA 4.0 授权。
+
+版权所有 © 2026 awujian。
