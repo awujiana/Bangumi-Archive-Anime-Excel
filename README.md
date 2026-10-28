@@ -6,8 +6,8 @@
 [![Format](https://img.shields.io/badge/格式-JSONL%20%2B%20gzip-2da44e)](#sec-5)
 
 [![Data Update](https://img.shields.io/badge/更新频率-每周三-2da44e.svg)](https://github.com/bangumi/Archive)
-[![Last Update](https://img.shields.io/badge/更新日期-2026--10--20-2da44e.svg)](data/anime.manifest.json)
-[![Records](https://img.shields.io/badge/记录数-31215-2da44e.svg)](data/anime.manifest.json)
+[![Last Update](https://img.shields.io/badge/更新日期-2026--10--27-2da44e.svg)](data/anime.manifest.json)
+[![Records](https://img.shields.io/badge/记录数-31258-2da44e.svg)](data/anime.manifest.json)
 [![Stars](https://img.shields.io/github/stars/awujiana/Bangumi-Archive-Anime-Excel?label=Stars&color=2da44e)](https://github.com/awujiana/Bangumi-Archive-Anime-Excel/stargazers)
 
 <h1>Bangumi-Archive-Anime-Excel</h1>
@@ -92,7 +92,7 @@ BGM 插件 (读取 JSONL → 写入 Excel → 同步 Bangumi API)
 
 ```
 Bangumi-Archive-Anime-Excel/
-├── data/                                # BGM 插件数据源（~22 MB，31215 条，gzip，共 6 片）
+├── data/                                # BGM 插件数据源（~22 MB，31258 条，gzip，共 6 片）
 │   ├── anime.manifest.json              # 清单：各片文件名/字段/大小/哈希（插件先读它）
 │   ├── anime.base.jsonlines.gz          # 基础字段（7 列，~1.1 MB）
 │   ├── anime.meta.jsonlines.gz          # infobox 解析扩展（20 列，~2.0 MB）
@@ -132,11 +132,11 @@ Bangumi-Archive-Anime-Excel/
 
 BGM 插件通过 raw URL 读取的动画数据，**按字段类别切成 6 片**；每片仍是「**表头 + 值数组**」两段式 JSON Lines 格式，再经 gzip 压缩。
 
-- **大小**：约 22 MB（22,709,190 字节，解压后 58.88 MiB）
-- **记录数**：31215 条
+- **大小**：约 22 MB（22,760,419 字节，解压后 59.02 MiB）
+- **记录数**：31258 条
 - **编码**：UTF-8 无 BOM，LF 换行
 - **更新频率**：每周三（跟随 Bangumi 官方 dump 节奏）
-- **最近更新**：2026-10-20
+- **最近更新**：2026-10-27
 - **访问地址**：
   ```
   https://raw.githubusercontent.com/awujiana/Bangumi-Archive-Anime-Excel/main/data/anime.manifest.json
