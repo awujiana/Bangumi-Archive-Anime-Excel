@@ -2,8 +2,8 @@
   "formatVersion": 1,
   "subjectType": 2,
   "typeLabel": "anime",
-  "updatedAt": "2026-10-27",
-  "recordCount": 31258,
+  "updatedAt": "2026-11-03",
+  "recordCount": 31297,
   "shards": [
     {
       "name": "base",
@@ -17,8 +17,8 @@
         "meta_tags",
         "nsfw"
       ],
-      "bytes": 1131330,
-      "sha256": "3a85a52faf41eebc261df8f1815a9b580ebed362d69306f94a0f3bfd56eb0b37"
+      "bytes": 1133329,
+      "sha256": "61bebddaa7c84c7d552dc888091d55165ff3efb05ef86a85b04a1d127b8b0d5f"
     },
     {
       "name": "meta",
@@ -45,8 +45,8 @@
         "在线播放平台",
         "别名"
       ],
-      "bytes": 2155204,
-      "sha256": "a2a39021d46d04b291b35a14e91db0896e4670845842200f6296c99178af9e9f"
+      "bytes": 2161288,
+      "sha256": "6c8f2a13bfd3d782fbf357f7adb1f29177c8737976641361a6a24632843b7d88"
     },
     {
       "name": "relations",
@@ -56,8 +56,8 @@
         "关联条目ID",
         "关联的动漫ID"
       ],
-      "bytes": 407353,
-      "sha256": "e78bcb5d0f337b1972d779d075e5d78ae144858fcfda7011d63c9d37759a5d25"
+      "bytes": 408054,
+      "sha256": "4ec96da05fd167a4e16103eee076581348692823d66e178aace19f103f99df76"
     },
     {
       "name": "stats",
@@ -72,8 +72,8 @@
         "favorite",
         "tags"
       ],
-      "bytes": 1662321,
-      "sha256": "0449baea143ce7e0ea184fea20fc9f66c3e9b929de601af9e4c5ad5ba478a54d"
+      "bytes": 1663297,
+      "sha256": "f3bd9933512972746d55064b16466d253771b315f7a917ae1d51a7f8295a1725"
     },
     {
       "name": "summary",
@@ -82,8 +82,8 @@
         "sid",
         "summary"
       ],
-      "bytes": 8163902,
-      "sha256": "1601da3c71c12e27b4c1a4f4981605d36ed6d55908d41b5044b96c8f9aa5e0d6"
+      "bytes": 8178674,
+      "sha256": "82f558435a33e348edcd05523fb722a0e2fc3d4d4c7df7115b8a9b61f38d39b1"
     },
     {
       "name": "infobox",
@@ -92,8 +92,8 @@
         "sid",
         "infobox"
       ],
-      "bytes": 9240309,
-      "sha256": "eaea86f9c02566b78e4eb3b3b85e67bb027697b57ae10a00208b305727590438"
+      "bytes": 9284366,
+      "sha256": "25612cbb80e524385f9d884b8ac913f18a1e3cd7f35f32e46610d750af58d580"
     }
   ]
 }
