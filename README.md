@@ -10,7 +10,8 @@
 [![Records](https://img.shields.io/badge/记录数-31297-2da44e.svg)](data/anime.manifest.json)
 [![Stars](https://img.shields.io/github/stars/awujiana/Bangumi-Archive-Anime-Excel?label=Stars&color=2da44e)](https://github.com/awujiana/Bangumi-Archive-Anime-Excel/stargazers)
 
-<h1>Bangumi-Archive-Anime-Excel</h1>
+<h1>Bangumi 动画存档数据</h1>
+<h2>Bangumi-Archive-Anime-Excel</h2>
 
 <strong>Bangumi 动画存档数据下发仓库 · 提供 JSONL 分片数据源与每周差异摘要，供 My Bangumi Database for WPS 插件免 token 同步</strong>
 
@@ -607,6 +608,20 @@ infobox字段包含条目原始wiki字符串，其中可能包含以下信息（
 - [shields.io](https://shields.io) —— README 徽章渲染服务。
 
 <a id="sec-10"></a>
+
+## 🏷 关联标签
+
+<p align="center">
+  <a href="https://github.com/topics/bangumi"><img alt="bangumi" src="https://img.shields.io/badge/bangumi-1f6feb?style=flat-square"></a>
+  <a href="https://github.com/topics/anime"><img alt="anime" src="https://img.shields.io/badge/anime-1f6feb?style=flat-square"></a>
+  <a href="https://github.com/topics/dataset"><img alt="dataset" src="https://img.shields.io/badge/dataset-1f6feb?style=flat-square"></a>
+  <a href="https://github.com/topics/jsonl"><img alt="jsonl" src="https://img.shields.io/badge/jsonl-1f6feb?style=flat-square"></a>
+  <a href="https://github.com/topics/excel"><img alt="excel" src="https://img.shields.io/badge/excel-1f6feb?style=flat-square"></a>
+  <a href="https://github.com/topics/data-archive"><img alt="data-archive" src="https://img.shields.io/badge/data--archive-1f6feb?style=flat-square"></a>
+  <a href="https://github.com/topics/wps"><img alt="wps" src="https://img.shields.io/badge/wps-1f6feb?style=flat-square"></a>
+</p>
+
+> 以上为本仓库的 GitHub Topics（关联标签）；可在仓库首页 Topics 区或 `gh repo edit awujiana/Bangumi-Archive-Anime-Excel --add-topic "..."` 维护。
 
 ## 🔗 关联仓库
 
